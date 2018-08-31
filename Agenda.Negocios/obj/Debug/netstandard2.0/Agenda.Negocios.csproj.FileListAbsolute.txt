@@ -1,0 +1,12 @@
+C:\Carlos\Programas\agenda\Agenda.Negocios\bin\Debug\netstandard2.0\Agenda.Negocios.deps.json
+C:\Carlos\Programas\agenda\Agenda.Negocios\bin\Debug\netstandard2.0\Agenda.Negocios.dll
+C:\Carlos\Programas\agenda\Agenda.Negocios\bin\Debug\netstandard2.0\Agenda.Negocios.pdb
+C:\Carlos\Programas\agenda\Agenda.Negocios\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Carlos\Programas\agenda\Agenda.Negocios\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.csprojAssemblyReference.cache
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.csproj.CoreCompileInputs.cache
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.AssemblyInfoInputs.cache
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.AssemblyInfo.cs
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.csproj.CopyComplete
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.dll
+C:\Carlos\Programas\agenda\Agenda.Negocios\obj\Debug\netstandard2.0\Agenda.Negocios.pdb

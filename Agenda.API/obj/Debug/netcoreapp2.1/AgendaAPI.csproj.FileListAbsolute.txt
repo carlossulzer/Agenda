@@ -1,0 +1,17 @@
+C:\Carlos\Programas\AgendaAPI\bin\Debug\netcoreapp2.1\hibernate.cfg.xml
+C:\Carlos\Programas\AgendaAPI\bin\Debug\netcoreapp2.1\AgendaAPI.deps.json
+C:\Carlos\Programas\AgendaAPI\bin\Debug\netcoreapp2.1\AgendaAPI.runtimeconfig.json
+C:\Carlos\Programas\AgendaAPI\bin\Debug\netcoreapp2.1\AgendaAPI.runtimeconfig.dev.json
+C:\Carlos\Programas\AgendaAPI\bin\Debug\netcoreapp2.1\AgendaAPI.dll
+C:\Carlos\Programas\AgendaAPI\bin\Debug\netcoreapp2.1\AgendaAPI.pdb
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.csproj.CoreCompileInputs.cache
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.RazorAssemblyInfo.cache
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.RazorAssemblyInfo.cs
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.AssemblyInfoInputs.cache
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.AssemblyInfo.cs
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.RazorTargetAssemblyInfo.cache
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.dll
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.pdb
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.csprojAssemblyReference.cache
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.Properties.Resources.resources
+C:\Carlos\Programas\AgendaAPI\obj\Debug\netcoreapp2.1\AgendaAPI.csproj.GenerateResource.cache

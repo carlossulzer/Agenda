@@ -1,0 +1,17 @@
+﻿Link Oficial
+====================================================================================
+https://fluentmigrator.github.io/articles/runners/dotnet-fm.html
+
+
+Instalar ferramenta para rodar o .NET Fluent Migration
+====================================================================================
+dotnet tool install -g FluentMigrator.DotNet.Cli
+
+
+Rodar Migration
+====================================================================================
+Entrar na pasta raiz do projeto
+
+Compilar o projeto para gerar a DLL com os scripts atualizados
+
+dotnet fm migrate -p SqlServer2012 -c "server=.\sqlexpress;Initial Catalog=Agenda;Integrated Security=True" -a ".\bin\Debug\netstandard2.0\Agenda.Migrations.dll"

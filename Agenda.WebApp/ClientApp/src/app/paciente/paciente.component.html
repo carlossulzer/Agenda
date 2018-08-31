@@ -1,0 +1,89 @@
+<fieldset>
+  <legend slider>PACIENTES</legend>
+  <div class="fields">
+      <div class="row">
+          <div class="col-md-3 col-sm-12 form-group">
+              <label for="id">Id Pessoa</label>
+              <!-- <input type="text" ng-disabled="true" id="idPessoa" ng-model="controller.modelPessoa.id" class="form-control" disabled="disabled" popover-trigger="focus" popover="{{controller.msgs.id}}" /> -->
+              <input type="text" ng-disabled="true" id="PessoaId" ng-model="controller.modelPessoa.id" class="form-control" disabled="disabled" popover-trigger="focus"  />
+ 
+          </div>
+          <!--
+          <div class="col-md-3 col-sm-12 form-group">
+              <label></label>
+              <div class="row">
+                  <div class="col-md-6">
+                      <button ng-click="controller.lookupPessoa.show()" class="btn btn-large btn-block btn-primary" type="button" id="botaoPesquisa" title="Pesquisar" ng-disabled="!controller.isNovo || controller.pesquisarPessoaDisabled">Pesquisar</button>
+                  </div>
+                  <div class="col-md-6"><button id="novaPessoa" ng-disabled="!controller.isNovo || controller.novaPessoaDisabled" class="btn btn-large btn-block btn-default" ng-click="controller.novaPessoaOnClick()" type="button" title="Nova Pessoa">Nova Pessoa</button></div>
+              </div>
+          </div>
+          -->
+      </div>
+
+      <div class="row">
+          <div class="col-md-6 col-sm-12 form-group">
+              <label for="nomeCompleto">Nome</label>
+              <!-- <input type="text" name="nomeCompleto" id="nomeCompleto" ng-model="controller.modelPessoa.nome" maxlength="255" ng-disabled="controller.isPessoa" class="{{controller.msgs.nomeCompleto ? 'invalid' : ''}} form-control"
+                     required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" popover="{{controller.msgs.nomeCompleto}}" />
+              -->
+               <input type="text" name="nomeCompleto" id="nomeCompleto" ng-model="controller.modelPessoa.nome" maxlength="255" class="form-control"
+                     required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus"  />
+                    
+          </div>
+          
+      </div>
+      
+      <div class="row">
+          <div class="col-md-3 col-sm-12 form-group">
+              <label for="dataNascimento">Data de Nascimento</label>
+              <div class="input-group">
+<!--                   <input date
+                         name="dataNascimento"
+                         id="dataNascimento"
+                         ng-model="controller.modelPessoa.dataNascimento"
+                         class="{{controller.msgs.dataNascimento ? 'invalid' : ''}} form-control"
+                         ng-disabled="controller.isPessoa"
+                         ng-required="controller.isDependente" popover-trigger="focus" popover="{{controller.msgs.dataNascimento}}" />
+ -->
+
+                         <input date
+                           ng-model="controller.modelPessoa.dataNascimento"
+                           name="dataNascimento"
+                          id="dataNascimento"
+                          class="form-control"
+                         />
+
+
+              </div>
+          </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-3 col-sm-12 form-group">
+          <label for="ddlSexo">Sexo</label>
+
+         <!--  <ui-select id="ddlSexo" ng-model="controller.modelPessoa.sexoPtu" reset-search-input="false" ng-disabled="controller.isPessoa" popover-trigger="focus" popover="{{controller.msgs.SexoPtu}}">
+              <ui-select-match class="ui-select-match" placeholder="Escolha o Sexo" allow-clear="true">{{$select.selected.codigo}} - {{$select.selected.descricao}}</ui-select-match>
+              <ui-select-choices class="ui-select-choices" repeat="item in controller.sexos | propsFilter: { codigo: $select.search, descricao: $select.search } | orderBy: 'codigo'">
+                  <div control-click-target="{{controller.resourceRouteService.rotas.sexo}}">
+                      {{item.codigo}} - {{item.descricao}}
+                  </div>
+              </ui-select-choices>
+          </ui-select> -->
+
+
+
+      </div>
+      </div>
+
+
+
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend slider>TESTE</legend>
+  <input type="radio" id="radio"> <label for="radio">Click me</label>
+</fieldset>

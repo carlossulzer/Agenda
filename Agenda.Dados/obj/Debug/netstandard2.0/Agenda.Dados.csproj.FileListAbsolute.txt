@@ -1,0 +1,15 @@
+C:\Carlos\Programas\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Dados.deps.json
+C:\Carlos\Programas\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Dados.dll
+C:\Carlos\Programas\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.csprojAssemblyReference.cache
+C:\Carlos\Programas\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.csproj.CoreCompileInputs.cache
+C:\Carlos\Programas\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.AssemblyInfoInputs.cache
+C:\Carlos\Programas\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.AssemblyInfo.cs
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Dados.deps.json
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Dados.dll
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Dados.pdb
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.csprojAssemblyReference.cache
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.csproj.CoreCompileInputs.cache
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.AssemblyInfoInputs.cache
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.AssemblyInfo.cs
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.dll
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.pdb

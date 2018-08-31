@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.API", "Agenda.API.csproj", "{27175C1C-9549-4546-9A54-4E7B3E98E664}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda", "..\Agenda\Agenda.csproj", "{1F4CB624-4ECC-4FCB-A82B-B549EC1537CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Migrations", "..\Agenda.Migrations\Agenda.Migrations.csproj", "{98F42E38-E904-4571-A9CF-13CCF5E6EE86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27175C1C-9549-4546-9A54-4E7B3E98E664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27175C1C-9549-4546-9A54-4E7B3E98E664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27175C1C-9549-4546-9A54-4E7B3E98E664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27175C1C-9549-4546-9A54-4E7B3E98E664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F4CB624-4ECC-4FCB-A82B-B549EC1537CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4CB624-4ECC-4FCB-A82B-B549EC1537CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4CB624-4ECC-4FCB-A82B-B549EC1537CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4CB624-4ECC-4FCB-A82B-B549EC1537CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F42E38-E904-4571-A9CF-13CCF5E6EE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F42E38-E904-4571-A9CF-13CCF5E6EE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F42E38-E904-4571-A9CF-13CCF5E6EE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F42E38-E904-4571-A9CF-13CCF5E6EE86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31C4B1F4-18FC-419F-A3B3-B6915569B498}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+C:\Carlos\Programas\agenda\Agenda.Global\bin\Debug\netstandard2.0\Agenda.Global.deps.json
+C:\Carlos\Programas\agenda\Agenda.Global\bin\Debug\netstandard2.0\Agenda.Global.dll
+C:\Carlos\Programas\agenda\Agenda.Global\bin\Debug\netstandard2.0\Agenda.Global.pdb
+C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.csproj.CoreCompileInputs.cache
+C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.AssemblyInfoInputs.cache
+C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.AssemblyInfo.cs
+C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.dll
+C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.pdb
