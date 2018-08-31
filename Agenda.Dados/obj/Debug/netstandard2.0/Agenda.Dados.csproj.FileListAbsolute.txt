@@ -13,3 +13,8 @@ C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.As
 C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.AssemblyInfo.cs
 C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.dll
 C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.pdb
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Negocios.dll
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\Agenda.Negocios.pdb
+C:\Carlos\Programas\agenda\Agenda.Dados\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+C:\Carlos\Programas\agenda\Agenda.Dados\obj\Debug\netstandard2.0\Agenda.Dados.csproj.CopyComplete

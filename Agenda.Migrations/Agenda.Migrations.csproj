@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\201808271508_ScriptStart.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Scripts\" />
   </ItemGroup>
 

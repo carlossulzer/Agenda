@@ -6,3 +6,4 @@ C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.
 C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.AssemblyInfo.cs
 C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.dll
 C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.pdb
+C:\Carlos\Programas\agenda\Agenda.Global\obj\Debug\netstandard2.0\Agenda.Global.csprojAssemblyReference.cache

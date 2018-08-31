@@ -1,17 +1,18 @@
 USE [master]
 GO
 
-/****** Object:  Database [Agenda]    Script Date: 28/08/2018 17:51:09 ******/
+/****** Object:  Database [Agenda]    Script Date: 28/08/2018 17:51:09 
 DROP DATABASE [Agenda]
 GO
+******/
 
 /****** Object:  Database [Agenda]    Script Date: 28/08/2018 17:51:09 ******/
 CREATE DATABASE [Agenda]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'Agenda', FILENAME = N'C:\Carlos\Programas\AgendaAPI\Dados\Agenda.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'Agenda', FILENAME = N'C:\Carlos\Programas\AgendaBDados\Agenda.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'Agenda_log', FILENAME = N'C:\Carlos\Programas\AgendaAPI\Dados\Agenda_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'Agenda_log', FILENAME = N'C:\Carlos\Programas\AgendaBDados\Agenda_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 
 ALTER DATABASE [Agenda] SET COMPATIBILITY_LEVEL = 130

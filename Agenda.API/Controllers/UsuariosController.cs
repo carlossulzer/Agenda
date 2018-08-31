@@ -1,5 +1,5 @@
-﻿using AgendaAPI.Entidades;
-using Agenda.API.Infra;
+﻿using Agenda.API.Infra;
+using Agenda.Negocios.DTO;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
 using System.Collections.Generic;
