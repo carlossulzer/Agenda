@@ -1,43 +1,42 @@
-﻿using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using AgendaAPI;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using NHibernate;
 
 namespace Agenda.API.Infra
 {
+
     public class NHibernateHelper
     {
-        private static ISessionFactory fabrica = CriaSessionFactory();
-        public static Configuration RecuperaConfiguracao()
-        {
-            Configuration cfg = new Configuration();
-            cfg.Configure();
-            cfg.AddAssembly(Assembly.GetExecutingAssembly());
+        private static ISessionFactory _sessionFactory;
 
-            return cfg;
+        private static NHibernate.ISessionFactory SessionFactory
+        {
+            get
+            {
+                if (_sessionFactory == null)
+
+                    InitializeSessionFactory();
+                return _sessionFactory;
+            }
         }
 
-        public static void GeraSchema()
+
+        private static void InitializeSessionFactory()
         {
-            Configuration cfg = RecuperaConfiguracao();
-            new SchemaExport(cfg).Create(true, true);
+
+            _sessionFactory = Fluently.Configure().Database(MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=.\SQLEXPRESS;Initial Catalog=Agenda;Integrated Security=True") 
+      
+                .ShowSql()
+                )
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Program>())
+                //.ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
+                .BuildSessionFactory();
         }
 
-        public static ISession AbreSession()
+        public static NHibernate.ISession OpenSession()
         {
-            return fabrica.OpenSession();
-        }
-        private static ISessionFactory CriaSessionFactory()
-        {
-            Configuration cfg = RecuperaConfiguracao();
-            return cfg.BuildSessionFactory();
+            return SessionFactory.OpenSession();
         }
     }
 }
-
-
-

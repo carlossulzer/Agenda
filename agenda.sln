@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.API", "Agenda.API\Agenda.API.csproj", "{BD3008BB-FD58-43CA-B045-AAA0CBD1DEB0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Dados", "Agenda.Dados\Agenda.Dados.csproj", "{A043BD8F-4FC6-4E9C-B458-84B14AFDE572}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Global", "Agenda.Global\Agenda.Global.csproj", "{815B3A51-A69E-40F6-B3C9-0806A2E0B51F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda.Migrations", "Agenda.Migrations\Agenda.Migrations.csproj", "{65F53245-2BBC-4595-A515-D1651824B026}"
@@ -25,10 +23,6 @@ Global
 		{BD3008BB-FD58-43CA-B045-AAA0CBD1DEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD3008BB-FD58-43CA-B045-AAA0CBD1DEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3008BB-FD58-43CA-B045-AAA0CBD1DEB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A043BD8F-4FC6-4E9C-B458-84B14AFDE572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A043BD8F-4FC6-4E9C-B458-84B14AFDE572}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A043BD8F-4FC6-4E9C-B458-84B14AFDE572}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A043BD8F-4FC6-4E9C-B458-84B14AFDE572}.Release|Any CPU.Build.0 = Release|Any CPU
 		{815B3A51-A69E-40F6-B3C9-0806A2E0B51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{815B3A51-A69E-40F6-B3C9-0806A2E0B51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{815B3A51-A69E-40F6-B3C9-0806A2E0B51F}.Release|Any CPU.ActiveCfg = Release|Any CPU

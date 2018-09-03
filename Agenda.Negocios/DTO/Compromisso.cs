@@ -10,27 +10,27 @@ namespace Agenda.Negocios.DTO
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Código do Compromisso")]
-        public int CompromissoId { get; set; }
+        public virtual int CompromissoId { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Observação")]
-        public string Observacao { get; set; }
+        public virtual string Observacao { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Data e Hora Inicial")]
-        public DateTime DataHoraInicial { get; set; }
+        public virtual DateTime DataHoraInicial { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Data e Hora Final")]
-        public DateTime DataHoraFinal { get; set; }
+        public virtual DateTime DataHoraFinal { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Código do Paciente")]
-        public int PacienteId { get; set; }
+        public virtual int PacienteId { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Código do Usuário")]
-        public int UsuarioId { get; set; }
+        public virtual int UsuarioId { get; set; }
 
 
 

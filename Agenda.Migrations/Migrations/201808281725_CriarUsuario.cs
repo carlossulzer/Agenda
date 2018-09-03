@@ -22,6 +22,8 @@ namespace Agenda.Migrations.Migrations
             Insert.IntoTable("Usuario").Row(new { UsuarioId = 2, Nome = "VALDINEI REIS" });
             Insert.IntoTable("Usuario").Row(new { UsuarioId = 3, Nome = "MARCOS RAMPINELLI" });
             Insert.IntoTable("Usuario").Row(new { UsuarioId = 4, Nome = "TARITON NEVES" });
+            Insert.IntoTable("Usuario").Row(new { UsuarioId = 5, Nome = "MAYARA MERLIN" });
+            Insert.IntoTable("Usuario").Row(new { UsuarioId = 6, Nome = "MARIANA ROCHA" });
 
             Execute.Sql("SET IDENTITY_INSERT Usuario OFF");
 

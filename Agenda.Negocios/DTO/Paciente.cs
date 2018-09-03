@@ -17,11 +17,16 @@ namespace Agenda.Negocios.DTO
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Data de Nascimento")]
-        public DateTime DataNascimento { get; set; }
+        public virtual DateTime DataNascimento { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Sexo")]
-        public int Sexo { get; set; }
+        public virtual int Sexo { get; set; }
+
+
+        [Required]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Telefone")]
+        public virtual string Telefone { get; set; }
 
     }
 }

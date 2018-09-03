@@ -3,6 +3,7 @@ using Agenda.Negocios.DTO;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Agenda.API.Controllers
 {
@@ -15,12 +16,11 @@ namespace Agenda.API.Controllers
         public JsonResult GetAll()
 
         {
-            using (ISession session = NHibernateHelper.AbreSession())
+            using (ISession session = NHibernateHelper.OpenSession())
             {
-                string hql = "from Paciente";
-                IQuery query = session.CreateQuery(hql);
-                IList<Paciente> lstPacientes = query.List<Paciente>();
+                var lstPacientes = session.Query<Paciente>().ToList();
                 return new JsonResult(lstPacientes);
+
             }
         }
 

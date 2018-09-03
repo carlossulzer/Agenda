@@ -12,7 +12,7 @@ namespace Agenda.Negocios.DTO
     {
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Código")]
-        public virtual int Id { get; set; }
+        public virtual int UsuarioId { get; set; }
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Nome")]

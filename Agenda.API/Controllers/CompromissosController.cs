@@ -16,7 +16,7 @@ namespace Agenda.API.Controllers
         public JsonResult GetAll()
 
         {
-            using (ISession session = NHibernateHelper.AbreSession())
+            using (ISession session = NHibernateHelper.OpenSession())
             {
                 string hql = "from Compromisso";
                 IQuery query = session.CreateQuery(hql);
@@ -29,7 +29,7 @@ namespace Agenda.API.Controllers
         public JsonResult GetGrid()
 
         {
-            using (ISession session = NHibernateHelper.AbreSession())
+            using (ISession session = NHibernateHelper.OpenSession())
             {
                 string hql = "CompromissoId, DataHoraInicial, DataHoraFinal, Observacao from Compromisso";
                 IQuery query = session.CreateQuery(hql);

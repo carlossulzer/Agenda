@@ -2,7 +2,7 @@
 using Agenda.Negocios.DTO;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Agenda.API.Controllers
 {
@@ -15,13 +15,17 @@ namespace Agenda.API.Controllers
         public JsonResult GetAll()
 
         {
-            using (ISession session = NHibernateHelper.AbreSession())
+            using (ISession session = NHibernateHelper.OpenSession())
             {
-                string hql = "from Usuario";
-                IQuery query = session.CreateQuery(hql);
-                IList<Paciente> lstUsuarios = query.List<Paciente>();
+                var lstUsuarios = session.Query<Usuario>().ToList();
                 return new JsonResult(lstUsuarios);
+
+                //string hql = "from Usuario";
+                //IQuery query = session.CreateQuery(hql);
+                //IList<Usuario> lstUsuarios = query.List<Usuario>();
+                //return new JsonResult(lstUsuarios);
             }
+
         }
 
     }
