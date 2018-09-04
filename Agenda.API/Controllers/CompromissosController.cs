@@ -3,7 +3,7 @@ using Agenda.Negocios.DTO;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Agenda.API.Controllers
 {
@@ -18,11 +18,11 @@ namespace Agenda.API.Controllers
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                string hql = "from Compromisso";
-                IQuery query = session.CreateQuery(hql);
-                IList<Compromisso> lstCompromissos = query.List<Compromisso>();
+                var lstCompromissos = session.Query<Compromisso>().ToList();
                 return new JsonResult(lstCompromissos);
+
             }
+
         }
 
         [HttpGet("grid")]
@@ -31,9 +31,10 @@ namespace Agenda.API.Controllers
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                string hql = "CompromissoId, DataHoraInicial, DataHoraFinal, Observacao from Compromisso";
-                IQuery query = session.CreateQuery(hql);
-                IList<Compromisso> lstCompromissos = query.List<Compromisso>();
+
+                var lstCompromissos = session.Query<Compromisso>().ToList()
+                                      .Select(x => new { x.CompromissoId, x.DataInicial, x.HoraInicial , x.DataFinal, x.HoraFinal , x.Observacao});
+
                 return new JsonResult(lstCompromissos);
             }
         }

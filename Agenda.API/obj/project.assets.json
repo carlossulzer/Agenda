@@ -12740,11 +12740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Carlos\\Programas\\agenda\\Agenda.API\\Agenda.API.csproj",
+      "projectUniqueName": "c:\\Carlos\\Programas\\Agenda\\Agenda.API\\Agenda.API.csproj",
       "projectName": "Agenda.API",
-      "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.API\\Agenda.API.csproj",
+      "projectPath": "c:\\Carlos\\Programas\\Agenda\\Agenda.API\\Agenda.API.csproj",
       "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
-      "outputPath": "C:\\Carlos\\Programas\\agenda\\Agenda.API\\obj\\",
+      "outputPath": "c:\\Carlos\\Programas\\Agenda\\Agenda.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12763,8 +12763,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\Agenda.Negocios.csproj": {
-              "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\Agenda.Negocios.csproj"
+            "c:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj": {
+              "projectPath": "c:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj"
             }
           }
         }

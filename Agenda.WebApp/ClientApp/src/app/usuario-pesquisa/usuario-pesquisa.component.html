@@ -1,0 +1,18 @@
+<h1>Usuários</h1>
+
+<p *ngIf="!foreusuarios"><em>Carregando...</em></p>
+
+<table class='table' *ngIf="foreusuarios">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuarios of foreusuarios">
+      <td>{{ usuarios.usuarioId }}</td>
+      <td>{{ usuarios.nome }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -14,8 +14,10 @@ namespace Agenda.API.Mappings
         {
             Id(x => x.CompromissoId).Column("CompromissoId").GeneratedBy.Identity();
             Map(x => x.Observacao).Not.Nullable();
-            Map(x => x.DataHoraInicial).Not.Nullable();
-            Map(x => x.DataHoraFinal).Not.Nullable();
+            Map(x => x.DataInicial).Not.Nullable();
+            Map(x => x.DataFinal).Not.Nullable();
+            Map(x => x.HoraInicial).Not.Nullable();
+            Map(x => x.HoraFinal).Not.Nullable();
             Map(x => x.PacienteId).Not.Nullable();
             Map(x => x.UsuarioId).Not.Nullable();
         }

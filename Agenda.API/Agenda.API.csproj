@@ -9,14 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Mappings\Usuario.hbm.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Usuario.hbm.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

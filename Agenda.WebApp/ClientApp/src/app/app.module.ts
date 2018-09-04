@@ -11,6 +11,10 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CompromissoComponent } from './compromisso/compromisso.component';
 import { PacienteComponent } from './paciente/paciente.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioPesquisaComponent } from './usuario-pesquisa/usuario-pesquisa.component';
+
+
 
 @NgModule({
   declarations: [
@@ -20,16 +24,20 @@ import { PacienteComponent } from './paciente/paciente.component';
     CounterComponent,
     FetchDataComponent,
     CompromissoComponent,
-    PacienteComponent
+    PacienteComponent,
+    UsuarioComponent,
+    UsuarioPesquisaComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      //{ path: '', component: HomeComponent, pathMatch: 'full' },
+     // { path: 'counter', component: CounterComponent },
+      //{ path: 'fetch-data', component: FetchDataComponent },
+      { path: 'usuario', component: UsuarioComponent },
+      { path: 'usuario-pesquisa', component: UsuarioPesquisaComponent },
       { path: 'paciente', component: PacienteComponent },
       { path: 'compromisso', component: CompromissoComponent },
     ])

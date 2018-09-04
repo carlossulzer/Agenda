@@ -17,12 +17,23 @@ namespace Agenda.Negocios.DTO
         public virtual string Observacao { get; set; }
 
         [Required]
-        [System.ComponentModel.DataAnnotations.Display(Name = "Data e Hora Inicial")]
-        public virtual DateTime DataHoraInicial { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Data Inicial")]
+        public virtual DateTime DataInicial { get; set; }
 
         [Required]
-        [System.ComponentModel.DataAnnotations.Display(Name = "Data e Hora Final")]
-        public virtual DateTime DataHoraFinal { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Data Final")]
+        public virtual DateTime DataFinal { get; set; }
+
+
+        [Required]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Hora Inicial")]
+        public virtual string HoraInicial { get; set; }
+
+        [Required]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Hora Final")]
+        public virtual string HoraFinal { get; set; }
+
+
 
         [Required]
         [System.ComponentModel.DataAnnotations.Display(Name = "Código do Paciente")]
