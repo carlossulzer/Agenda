@@ -17,6 +17,11 @@ export class UsuarioPesquisaComponent {
   }
 }
 
+//https://medium.com/@gigioSouza/resolvendo-o-problema-do-cors-com-angular-2-e-o-angular-cli-7f7cb7aab3c2
+
+//  //"start": "ng serve --extract-css",     package.json
+
+
 interface UsuarioForecast {
   usuarioId: number;
   nome: string;
