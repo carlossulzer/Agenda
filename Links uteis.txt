@@ -1,2 +1,5 @@
 Aula Marcorati angular e web api
 https://www.youtube.com/watch?v=SKY-26MMBak
+
+cors
+http://www.macoratti.net/18/05/aspcore_cors1.htm
