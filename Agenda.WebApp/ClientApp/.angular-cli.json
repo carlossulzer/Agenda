@@ -55,11 +55,12 @@
   },
   "defaults": {
     "serve": {
-    "proxyConfig": "./proxy.config.js",
-    "styleExt": "css",
-    "component": {},
-    "build": {
-      "progress": true
+      "proxyConfig": "./proxy.config.js",
+      "styleExt": "css",
+       "component": {},
+       "build": {
+           "progress": true
+       }
     }
   }
 }

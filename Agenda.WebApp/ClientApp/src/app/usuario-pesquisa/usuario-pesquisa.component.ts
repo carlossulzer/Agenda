@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-usuario-pesquisa',
   templateUrl: './usuario-pesquisa.component.html',
@@ -15,11 +16,13 @@ export class UsuarioPesquisaComponent {
       this.foreusuarios = result;
     }, error => console.error(error));
   }
+
 }
 
 //https://medium.com/@gigioSouza/resolvendo-o-problema-do-cors-com-angular-2-e-o-angular-cli-7f7cb7aab3c2
 
-//  //"start": "ng serve --extract-css",     package.json
+// "start": "ng serve --extract-css",     package.json
+//"start": "ng serve --proxy-config proxy.config.js",
 
 
 interface UsuarioForecast {

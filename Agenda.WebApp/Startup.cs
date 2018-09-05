@@ -20,11 +20,21 @@ namespace Agenda
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors("AllowMyOrigin");
+
+services.Configure<MvcOptions>(options =>
+{
+options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
+});
+}
+
+
+
             services.AddMvc()
-                //.AddJsonOptions(opt =>
-                //{
-                //    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                //})
+                .AddJsonOptions(opt =>
+                {
+                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the Angular files will be served from this directory
@@ -33,6 +43,7 @@ namespace Agenda
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            
            
         }
 
@@ -49,8 +60,9 @@ namespace Agenda
                 app.UseHsts();
             }
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
+            app.useCors("AllowMyOrigin");
+            //app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+ 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
