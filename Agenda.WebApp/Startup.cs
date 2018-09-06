@@ -20,15 +20,7 @@ namespace Agenda
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors("AllowMyOrigin");
-
-services.Configure<MvcOptions>(options =>
-{
-options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
-});
-}
-
-
+            services.AddCors();
 
             services.AddMvc()
                 .AddJsonOptions(opt =>
@@ -36,6 +28,8 @@ options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
                     opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -60,9 +54,20 @@ options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
                 app.UseHsts();
             }
 
-            app.useCors("AllowMyOrigin");
-            //app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+            app.use(bodyParser.json())
+            app.use(bodyParser.urlencoded(extended: true))
+
+            app.use(function(req, res, next) {
+                res.header("Access-Control-Allow-Origin", "https://localhost:6001");
+                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, X-XSRF-TOKEN, Content-Type, Accept");
+                next();
+            });
  
+            app.useAuthentication();
+            app.UseHttpsRedirection();
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
@@ -86,6 +91,7 @@ options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
         }
     }
 }

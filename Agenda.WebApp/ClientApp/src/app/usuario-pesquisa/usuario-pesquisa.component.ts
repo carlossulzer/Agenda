@@ -1,5 +1,10 @@
 import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+
+
+//import { Http } from '@angular/http';
 
 
 @Component({
@@ -7,25 +12,32 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './usuario-pesquisa.component.html',
   styleUrls: ['./usuario-pesquisa.component.css']
 })
+
+
 export class UsuarioPesquisaComponent {
 
-   public foreusuarios: UsuarioForecast[];
+   public foreusuarios: IUsuarioForecast[] = [];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<UsuarioForecast[]>('https://localhost:6001/api/usuarios/todos').subscribe(result => {
+
+
+   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    
+    const httpOptions = {
+      headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*',
+        'Content-Type': 'application/json'
+        })
+    };
+
+    http.get<IUsuarioForecast[]>('https://localhost:6001/api/usuarios/todos', httpOptions).subscribe(result => {
       this.foreusuarios = result;
-    }, error => console.error(error));
+    }, error =>alert(error), 
+    ()=> console.log(this.foreusuarios)); //  console.error(error));
+    
   }
-
 }
 
-//https://medium.com/@gigioSouza/resolvendo-o-problema-do-cors-com-angular-2-e-o-angular-cli-7f7cb7aab3c2
-
-// "start": "ng serve --extract-css",     package.json
-//"start": "ng serve --proxy-config proxy.config.js",
-
-
-interface UsuarioForecast {
+interface IUsuarioForecast {
   usuarioId: number;
   nome: string;
 }
