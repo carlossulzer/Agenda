@@ -20,7 +20,7 @@ namespace Agenda
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
 
             services.AddMvc()
                 .AddJsonOptions(opt =>
@@ -54,21 +54,21 @@ namespace Agenda
                 app.UseHsts();
             }
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            //app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
-            app.use(bodyParser.json())
-            app.use(bodyParser.urlencoded(extended: true))
+            //app.use(bodyParser.json())
+            //app.use(bodyParser.urlencoded(extended: true))
 
-            app.use(function(req, res, next) {
-                res.header("Access-Control-Allow-Origin", "https://localhost:6001");
-                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, X-XSRF-TOKEN, Content-Type, Accept");
-                next();
-            });
+            //app.use(function(req, res, next) {
+            //    res.header("Access-Control-Allow-Origin", "https://localhost:6001");
+            //    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, X-XSRF-TOKEN, Content-Type, Accept");
+            //    next();
+            //});
  
-            app.useAuthentication();
-            app.UseHttpsRedirection();
+            //app.useAuthentication();
+            //app.UseHttpsRedirection();
             
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
