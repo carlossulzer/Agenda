@@ -1,0 +1,9 @@
+- Swagger - Documentação de Api
+  https://localhost:6001/swagger
+
+- Migration
+
+- FluentNHibernate
+
+- NHibernate
+
