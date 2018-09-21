@@ -192,7 +192,6 @@ FakesAssemblies/
 **/wwwroot/ts/**/*.js
 *.js.map
 **/wwwroot/css
-*.css
 **/wwwroot/lib/fonts
 **/wwwroot/lib/less
 **/wwwroot/lib/ts
@@ -204,7 +203,6 @@ FakesAssemblies/
 src/spa/*
 
 # Extensions
-*.css
 .vs
 .gulp-cache
 
