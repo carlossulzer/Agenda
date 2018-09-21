@@ -176,23 +176,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TEMP\\.nuget\\packages\\": {},
+    "C:\\Users\\carlossulzerpego\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
+      "projectUniqueName": "C:\\Carlos\\programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
       "projectName": "Agenda.Negocios",
-      "projectPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
-      "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
-      "outputPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\obj\\",
+      "projectPath": "C:\\Carlos\\programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
+      "packagesPath": "C:\\Users\\carlossulzerpego\\.nuget\\packages\\",
+      "outputPath": "C:\\Carlos\\programas\\Agenda\\Agenda.Negocios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\TEMP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\carlossulzerpego\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
