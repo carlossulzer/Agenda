@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
+      "projectUniqueName": "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
       "projectName": "Agenda.Negocios",
-      "projectPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
+      "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\Agenda.Negocios.csproj",
       "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
-      "outputPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Negocios\\obj\\",
+      "outputPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

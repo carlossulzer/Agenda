@@ -2048,11 +2048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Carlos\\Programas\\Agenda\\Agenda.Migrations\\Agenda.Migrations.csproj",
+      "projectUniqueName": "C:\\Carlos\\Programas\\agenda\\Agenda.Migrations\\Agenda.Migrations.csproj",
       "projectName": "Agenda.Migrations",
-      "projectPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Migrations\\Agenda.Migrations.csproj",
+      "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Migrations\\Agenda.Migrations.csproj",
       "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
-      "outputPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Migrations\\obj\\",
+      "outputPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Migrations\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Carlos\\Programas\\Agenda\\Agenda.Global\\Agenda.Global.csproj",
+      "projectUniqueName": "C:\\Carlos\\Programas\\agenda\\Agenda.Global\\Agenda.Global.csproj",
       "projectName": "Agenda.Global",
-      "projectPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Global\\Agenda.Global.csproj",
+      "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Global\\Agenda.Global.csproj",
       "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
-      "outputPath": "C:\\Carlos\\Programas\\Agenda\\Agenda.Global\\obj\\",
+      "outputPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Global\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

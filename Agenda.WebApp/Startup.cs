@@ -23,10 +23,10 @@ namespace Agenda
             //services.AddCors();
 
             services.AddMvc()
-                .AddJsonOptions(opt =>
-                {
-                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                })
+                //.AddJsonOptions(opt =>
+                //{
+                //    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                //})
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             
