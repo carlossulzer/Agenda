@@ -8,14 +8,19 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CompromissoComponent } from './compromisso/compromisso.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioPesquisaComponent } from './usuario-pesquisa/usuario-pesquisa.component';
-import { NgxCurrencyModule } from "ngx-currency";
 
+import { NgxCurrencyModule } from "ngx-currency";
+//import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
+
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RadioButtonModule, RadioButton} from 'primeng/radiobutton';
+import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule, ConfirmationService, SharedModule } from 'primeng/primeng';
 
 
 @NgModule({
@@ -23,8 +28,6 @@ import { NgxCurrencyModule } from "ngx-currency";
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     CompromissoComponent,
     PacienteComponent,
     UsuarioComponent,
@@ -32,13 +35,16 @@ import { NgxCurrencyModule } from "ngx-currency";
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     NgxCurrencyModule,
+    RadioButtonModule,
+    ButtonModule,
+    ConfirmDialogModule,
+    SharedModule,
     RouterModule.forRoot([
-      //{ path: '', component: HomeComponent, pathMatch: 'full' },
-     // { path: 'counter', component: CounterComponent },
-      //{ path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'usuario', component: UsuarioComponent },
       { path: 'usuario-pesquisa', component: UsuarioPesquisaComponent },
       { path: 'paciente', component: PacienteComponent },

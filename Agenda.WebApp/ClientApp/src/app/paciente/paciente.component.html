@@ -63,8 +63,8 @@
 
 
       <div class="row">
-        <div class="col-md-3 col-sm-12 form-group">
-          <label for="nomeCompleto">Nome</label>
+        <div class="col-md-12 col-sm-12 form-group">
+          <label for="nomeCompleto">Sexo</label>
 
          <!--  <ui-select id="ddlSexo" ng-model="controller.modelPessoa.sexoPtu" reset-search-input="false" ng-disabled="controller.isPessoa" popover-trigger="focus" popover="{{controller.msgs.SexoPtu}}">
               <ui-select-match class="ui-select-match" placeholder="Escolha o Sexo" allow-clear="true">{{$select.selected.codigo}} - {{$select.selected.descricao}}</ui-select-match>
@@ -74,9 +74,14 @@
                   </div>
               </ui-select-choices>
           </ui-select> -->
-
-
-
+          <div class = "ui-g">
+            <div class="ui-g-12">
+                <p-radioButton name="rbtSexo" value="M" label="Masculino" inputId="rbtMasculino" [(ngModel)]="sexo"></p-radioButton>
+            </div>
+            <div class="ui-g-12">
+                <p-radioButton name="rbtSexo" value="F" label="Femino" inputId = "rbtFeminino" [(ngModel)]="sexo"></p-radioButton>
+            </div>
+         </div>
         </div>
       </div>
 
@@ -88,6 +93,21 @@
              </div>
         </div>
       </div>
+
+      <div class="ui-g" style="width:250px;margin-bottom:10px">
+            <div class="ui-g-12"><p-radioButton name="group2" value="Option 1" label="Option 1" [(ngModel)]="val2" inputId="preopt1"></p-radioButton></div>
+            <div class="ui-g-12"><p-radioButton name="group2" value="Option 2" label="Option 2" [(ngModel)]="val2" inputId="preopt2"></p-radioButton></div>
+            <div class="ui-g-12"><p-radioButton name="group2" value="Option 3" label="Option 3" [(ngModel)]="val2" inputId="preopt3"></p-radioButton></div>
+        </div>
+        Selected Value = {{val2||'none'}}
+
+
+      <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                <button type="button" pButton icon="pi pi-times" (click)="delete()" label="Delete"></button>
+                <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+            </div>
+        </p-footer>
 
   </div>
 </fieldset>
