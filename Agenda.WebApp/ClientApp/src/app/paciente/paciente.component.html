@@ -64,7 +64,7 @@
 
       <div class="row">
         <div class="col-md-3 col-sm-12 form-group">
-          <label for="ddlSexo">Sexo</label>
+          <label for="nomeCompleto">Nome</label>
 
          <!--  <ui-select id="ddlSexo" ng-model="controller.modelPessoa.sexoPtu" reset-search-input="false" ng-disabled="controller.isPessoa" popover-trigger="focus" popover="{{controller.msgs.SexoPtu}}">
               <ui-select-match class="ui-select-match" placeholder="Escolha o Sexo" allow-clear="true">{{$select.selected.codigo}} - {{$select.selected.descricao}}</ui-select-match>
@@ -77,10 +77,17 @@
 
 
 
-      </div>
+        </div>
       </div>
 
-
+      <div class="row">
+        <div class="col-md-3 col-sm-12 form-group">
+            <label for="valorConsulta">Valor da Consulta R$</label>
+            <div class="input-group">
+                 <input class="form-control" currencyMask [(ngModel)]="value" [id]="valor01" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>        
+             </div>
+        </div>
+      </div>
 
   </div>
 </fieldset>

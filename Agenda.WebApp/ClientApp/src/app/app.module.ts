@@ -14,6 +14,7 @@ import { CompromissoComponent } from './compromisso/compromisso.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioPesquisaComponent } from './usuario-pesquisa/usuario-pesquisa.component';
+import { NgxCurrencyModule } from "ngx-currency";
 
 
 
@@ -33,6 +34,7 @@ import { UsuarioPesquisaComponent } from './usuario-pesquisa/usuario-pesquisa.co
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    NgxCurrencyModule,
     RouterModule.forRoot([
       //{ path: '', component: HomeComponent, pathMatch: 'full' },
      // { path: 'counter', component: CounterComponent },
