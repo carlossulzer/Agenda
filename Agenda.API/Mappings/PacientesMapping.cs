@@ -15,6 +15,7 @@ namespace Agenda.API.Mappings
             Map(x => x.NomePaciente).Not.Nullable();
             Map(x => x.DataNascimento).Not.Nullable();
             Map(x => x.Sexo).Not.Nullable();
+            Map(x => x.Telefone).Not.Nullable();
         }
     }
 }

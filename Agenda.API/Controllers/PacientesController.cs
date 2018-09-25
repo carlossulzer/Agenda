@@ -24,5 +24,20 @@ namespace Agenda.API.Controllers
             }
         }
 
+
+        [HttpGet("grid")]
+        public JsonResult GetGrid()
+
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+
+                var lstPacientes = session.Query<Paciente>().ToList()
+                                      .Select(x => new { x.PacienteId, x.NomePaciente , x.Telefone });
+
+                return new JsonResult(lstPacientes);
+            }
+        }
+
     }
 }
