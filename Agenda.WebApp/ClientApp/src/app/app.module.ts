@@ -26,7 +26,8 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import {ToolbarModule} from 'primeng/toolbar';
 import {InputTextModule} from 'primeng/inputtext';
-import { ConfirmDialogModule, ConfirmationService, SharedModule } from 'primeng/primeng';
+import {MessageService} from 'primeng/api'
+import { ConfirmDialogModule, ConfirmationService, SharedModule, MessagesModule, CodeHighlighterModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,8 @@ import { ConfirmDialogModule, ConfirmationService, SharedModule } from 'primeng/
     ConfirmDialogModule,
     InputTextModule,
     SharedModule,
+    MessagesModule,
+    CodeHighlighterModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'usuario-cadastro', component: UsuarioCadastroComponent },
@@ -62,7 +65,7 @@ import { ConfirmDialogModule, ConfirmationService, SharedModule } from 'primeng/
       { path: 'compromisso', component: CompromissoComponent },
     ])
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

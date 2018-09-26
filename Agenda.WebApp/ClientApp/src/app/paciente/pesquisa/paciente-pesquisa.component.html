@@ -1,6 +1,10 @@
 <legend slider>Pacientes</legend>
 <p *ngIf="!forepacientes"><em>Carregando...</em></p>
 
+<div class="content-section implementation">
+<p-messages [(value)]="msgs"></p-messages>
+</div>
+
 <p-toolbar>
     <div class="ui-toolbar-group-left">
         <span class="ui-float-label">
@@ -11,7 +15,9 @@
     </div>
     
     <div class="ui-toolbar-group-right">
-        <button pButton type="button" label="Novo" icon="pi pi-plus"></button>
+        <a [routerLink]='["/paciente-cadastro"]' (click)='collapse()'>
+            <button pButton type="button" label="Novo" icon="pi pi-plus" (click)="New()" ></button>
+        </a>
     </div>
 </p-toolbar>
 
@@ -22,7 +28,7 @@
                 {{col.header}}
                 <p-sortIcon [field]="col.field"></p-sortIcon>
             </th>
-            <th style="width:8%"></th>
+            <th style="width:100px"></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -30,8 +36,8 @@
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}
             </td>
-            <td style="width:8%">
-                <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
+            <td style="width:100px">
+                <button pButton type="button" icon="pi pi-calendar" class="ui-button-success" (click)="Edit(rowData)"></button>
                 <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
             </td>
         </tr>
