@@ -1,9 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 import { Message} from 'primeng/api'
 import { IPaciente } from './../../../Models/pacientes.interface';
+import { environment } from './../../../environments/environment';
 
 // video marcoratti
 //https://www.youtube.com/watch?v=SKY-26MMBak
@@ -15,43 +17,43 @@ import { IPaciente } from './../../../Models/pacientes.interface';
 })
 
 export class PacientePesquisaComponent {
-      public forepacientes: IPaciente[] = [];
+      public pacientesAPI: IPaciente[] = [];
       cols: any[];
       msgs: Message[] = [];
       
-      constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string ) {
+      constructor(http: HttpClient, private router: Router ) 
+      {
+          this.cols = [
+            { field: 'pacienteId', header: 'Código', width: '15%' },
+            { field: 'nomePaciente', header: 'Nome do Paciente', width : '60%' },
+            { field: 'telefone', header: 'Telefone', width : '20' }
+          ];
 
-      const httpOptions = {
-        headers: new HttpHeaders({ 
-          'Access-Control-Allow-Origin':'*',
-          'Content-Type': 'application/json'
-          })
-      };
+          http.get<IPaciente[]>(environment.apiUrl+'/pacientes/grid').subscribe(result => {
+              this.pacientesAPI = result;
+            }, error => this.showError());
+      }
 
-      this.cols = [
-        { field: 'pacienteId', header: 'Código', width: '15%' },
-        { field: 'nomePaciente', header: 'Nome do Paciente', width : '60%' },
-        { field: 'telefone', header: 'Telefone', width : '20' }
-      ];
+      newRegister( )
+      {
+        //this.router.navigate(['/paciente-cadastro'], pacienteId);
+        this.router.navigate(['/paciente-cadastro']);
+      }
 
-      http.get<IPaciente[]>('https://localhost:6001/api/pacientes/grid', httpOptions).
-      subscribe(result => { 
-                              this.forepacientes = result;
-                          }, error =>this.showError(), ()=> console.log(this.forepacientes));
-    }
+      editRegister(paciente : IPaciente)
+      {
+        alert(paciente.nomePaciente);
+      } 
 
-    New(@Inject('BASE_URL') baseUrl: string){
-      //var url = '/movimentacaoCadastralBeneficiarioPessoa?idbeneficiario=' + this.model.id + '&apenasFamilia=true';
-      //this.$location.url(url);
-    }
+      deleteRegister()
+      {
 
-    Edit(paciente : IPaciente){
-      alert(paciente.nomePaciente);
-    } 
+      }
 
-    showError() {
-      this.msgs = [];
-      this.msgs.push( { severity:'error', summary:'Erro : ', detail: "Erro ao obter os dados (API)"});
-  }
+      showError() 
+      {
+        this.msgs = [];
+        this.msgs.push( { severity:'error', summary:'Erro : ', detail: "Erro ao obter os dados (API)"});
+      }
 }
 

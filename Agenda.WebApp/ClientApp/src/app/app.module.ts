@@ -12,7 +12,6 @@ import { CompromissoComponent } from './compromisso/compromisso.component';
 import { PacienteCadastroComponent } from './paciente/cadastro/paciente-cadastro.component';
 import { PacientePesquisaComponent } from './paciente/pesquisa/paciente-pesquisa.component';
 import { UsuarioCadastroComponent } from './usuario/cadastro/usuario-cadastro.component';
-import { UsuarioPesquisaComponent } from './usuario/pesquisa/usuario-pesquisa.component';
 
 import { NgxCurrencyModule } from "ngx-currency";
 //import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
@@ -28,6 +27,8 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {InputTextModule} from 'primeng/inputtext';
 import {MessageService} from 'primeng/api'
 import { ConfirmDialogModule, ConfirmationService, SharedModule, MessagesModule, CodeHighlighterModule } from 'primeng/primeng';
+import { GridPersoncComponent } from './Common/grid-personc/grid-personc.component';
+import { UsuarioPesquisaComponent } from './usuario/pesquisa/usuario-pesquisa.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ConfirmDialogModule, ConfirmationService, SharedModule, MessagesModule,
     CompromissoComponent,
     PacienteCadastroComponent,
     PacientePesquisaComponent,
+    GridPersoncComponent,
     UsuarioCadastroComponent,
     UsuarioPesquisaComponent
       ],

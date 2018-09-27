@@ -1,10 +1,12 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { IUsuario } from './../../../Models/usuarios.interface';
+import { IGrid } from './../../../Models/gridpersonc.interface';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
 
-
-//import { Http } from '@angular/http';
+import { environment } from '../../../environments/environment';
+import { GridPersoncComponent } from './../../Common/grid-personc/grid-personc.component';
 
 
 @Component({
@@ -14,32 +16,27 @@ import { Observable } from 'rxjs/Observable';
 })
 
 
-export class UsuarioPesquisaComponent {
+export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
+   url = environment.apiUrl+'/usuarios/grid';
 
-   public foreusuarios: IUsuarioForecast[] = [];
+   constructor(http: HttpClient, public router: Router)  {
+       
+      super(http, router);
 
+      this.titulo = "Usuários";
 
+      this.newRoute = '/usuario-cadastro';
 
-   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    
-    const httpOptions = {
-      headers: new HttpHeaders({ 
-        'Access-Control-Allow-Origin':'*',
-        'Content-Type': 'application/json'
-        })
-    };
+      this.cols = [
+        { field: 'usuarioId', header: 'Código', width: '15%' },
+        { field: 'nome', header: 'Nome do Usuário', width : '80%' }
+      ];
 
-    http.get<IUsuarioForecast[]>('https://localhost:6001/api/usuarios/todos', httpOptions).subscribe(result => {
-      this.foreusuarios = result;
-    }, error =>alert(error), 
-    ()=> console.log(this.foreusuarios)); //  console.error(error));
-    
+      
+      this.getData(http, environment.apiUrl+'/usuarios/todos');
+
   }
 }
 
-interface IUsuarioForecast {
-  usuarioId: number;
-  nome: string;
-}
 
 

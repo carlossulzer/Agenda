@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\NewFolder\" />
     <Folder Include="ClientApp\src\app\Models\" />
     <Folder Include="ClientApp\src\app\Services\" />
   </ItemGroup>
