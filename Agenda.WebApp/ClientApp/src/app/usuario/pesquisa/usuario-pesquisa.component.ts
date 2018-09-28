@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
@@ -13,29 +13,24 @@ import { IUsuario } from './../../../Models/usuarios.interface';
   styleUrls: ['./usuario-pesquisa.component.css']
 })
 
-
 export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> implements OnInit {
-   url = environment.apiUrl+'/usuarios/todos';
 
    constructor(http: HttpClient, public router: Router)  {
        super(http, router); 
 
     }
 
+    url = environment.apiUrl+'/usuarios/todos';
+    titulo = "Usuários";
+    newRoute = '/usuario-cadastro';
+
     ngOnInit  (){
-      
-
-      this.titulo = "Usuários";
-
-      this.newRoute = '/usuario-cadastro';
-
       this.cols = [
         { field: 'usuarioId', header: 'Código', width: '15%' },
         { field: 'nome', header: 'Nome do Usuário', width : '80%' }
       ]; 
-    
       
-      this.getData(this.http, environment.apiUrl+'/usuarios/todos'); // this.url);
+      //this.getData(); // this.url);
     }
 }
 

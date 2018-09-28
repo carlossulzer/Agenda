@@ -12847,23 +12847,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carlossulzerpego\\.nuget\\packages\\": {},
+    "C:\\Users\\TEMP\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Carlos\\programas\\Agenda\\Agenda.API\\Agenda.API.csproj",
+      "projectUniqueName": "C:\\Carlos\\Programas\\agenda\\Agenda.API\\Agenda.API.csproj",
       "projectName": "Agenda.API",
-      "projectPath": "C:\\Carlos\\programas\\Agenda\\Agenda.API\\Agenda.API.csproj",
-      "packagesPath": "C:\\Users\\carlossulzerpego\\.nuget\\packages\\",
-      "outputPath": "C:\\Carlos\\programas\\Agenda\\Agenda.API\\obj\\",
+      "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.API\\Agenda.API.csproj",
+      "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
+      "outputPath": "C:\\Carlos\\Programas\\agenda\\Agenda.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\carlossulzerpego\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TEMP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12876,8 +12876,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Carlos\\programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj": {
-              "projectPath": "C:\\Carlos\\programas\\Agenda\\Agenda.Negocios\\Agenda.Negocios.csproj"
+            "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\Agenda.Negocios.csproj": {
+              "projectPath": "C:\\Carlos\\Programas\\agenda\\Agenda.Negocios\\Agenda.Negocios.csproj"
             }
           }
         }

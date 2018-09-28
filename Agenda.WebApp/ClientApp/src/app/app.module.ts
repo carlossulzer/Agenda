@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -14,10 +15,6 @@ import { PacientePesquisaComponent } from './paciente/pesquisa/paciente-pesquisa
 import { UsuarioCadastroComponent } from './usuario/cadastro/usuario-cadastro.component';
 
 import { NgxCurrencyModule } from "ngx-currency";
-//import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
-
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {RadioButtonModule, RadioButton} from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
@@ -29,6 +26,7 @@ import {MessageService} from 'primeng/api'
 import { ConfirmDialogModule, ConfirmationService, SharedModule, MessagesModule, CodeHighlighterModule } from 'primeng/primeng';
 import { GridPersoncComponent } from './Common/grid-personc/grid-personc.component';
 import { UsuarioPesquisaComponent } from './usuario/pesquisa/usuario-pesquisa.component';
+//import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
 
 @NgModule({
   declarations: [
