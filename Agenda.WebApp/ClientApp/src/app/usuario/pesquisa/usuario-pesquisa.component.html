@@ -1,18 +1,1 @@
-<legend slider>{{titulo}}}</legend>
-
-<p *ngIf="!foreusuarios"><em>Carregando...</em></p>
-
-<table class='table' *ngIf="foreusuarios">
-  <thead>
-    <tr>
-      <th>Código</th>
-      <th>Nome do Usuário</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let usuariosList of foreusuarios">
-      <td>{{ usuariosList.usuarioId }}</td>
-      <td>{{ usuariosList.nome }}</td>
-    </tr>
-  </tbody>
-</table>
+<app-grid-personc></app-grid-personc>

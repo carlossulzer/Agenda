@@ -1,13 +1,11 @@
-import { IUsuario } from './../../../Models/usuarios.interface';
-import { IGrid } from './../../../Models/gridpersonc.interface';
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 import { environment } from '../../../environments/environment';
 import { GridPersoncComponent } from './../../Common/grid-personc/grid-personc.component';
-
+import { IUsuario } from './../../../Models/usuarios.interface';
 
 @Component({
   selector: 'app-usuario-pesquisa',
@@ -16,12 +14,16 @@ import { GridPersoncComponent } from './../../Common/grid-personc/grid-personc.c
 })
 
 
-export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
-   url = environment.apiUrl+'/usuarios/grid';
+export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> implements OnInit {
+   url = environment.apiUrl+'/usuarios/todos';
 
    constructor(http: HttpClient, public router: Router)  {
-       
-      super(http, router);
+       super(http, router); 
+
+    }
+
+    ngOnInit  (){
+      
 
       this.titulo = "Usuários";
 
@@ -30,12 +32,11 @@ export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
       this.cols = [
         { field: 'usuarioId', header: 'Código', width: '15%' },
         { field: 'nome', header: 'Nome do Usuário', width : '80%' }
-      ];
-
+      ]; 
+    
       
-      this.getData(http, environment.apiUrl+'/usuarios/todos');
-
-  }
+      this.getData(this.http, environment.apiUrl+'/usuarios/todos'); // this.url);
+    }
 }
 
 

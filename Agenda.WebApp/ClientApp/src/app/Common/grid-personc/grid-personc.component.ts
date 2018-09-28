@@ -1,12 +1,11 @@
 import { Observable } from 'rxjs/Observable';
 import { IUsuario } from './../../../Models/usuarios.interface';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 import { Message} from 'primeng/api'
-import { IGrid } from './../../../Models/gridpersonc.interface';
 
 // video marcoratti
 //https://www.youtube.com/watch?v=SKY-26MMBak
@@ -17,8 +16,8 @@ import { IGrid } from './../../../Models/gridpersonc.interface';
   styleUrls: ['./grid-personc.component.css']
 })
 
-export class GridPersoncComponent<T> {
-      titulo : string;
+export class GridPersoncComponent<T> implements OnInit {
+      public titulo : string;
       cols: any[];
       msgs: Message[] = [];
       newRoute : string;
@@ -26,14 +25,18 @@ export class GridPersoncComponent<T> {
       dadosAPI: T[] = []; 
       url : string;
 
-      constructor(http: HttpClient, public router: Router) 
+      constructor(public http : HttpClient, public router: Router) 
       {
-        this.getData(http, this.url);
+       
+      }
+
+      ngOnInit(){
+         this.getData(this.http, this.url);
       }
 
 
-      getData(http: HttpClient, url : string){
-        http.get<T[]>(url).subscribe(result => {
+      getData(http: HttpClient, urlApi : string){
+        http.get<T[]>(urlApi).subscribe(result => {
           this.dadosAPI = result;
         }, error => this.showError());
       }
@@ -44,9 +47,9 @@ export class GridPersoncComponent<T> {
         this.router.navigate([this.newRoute]);
       }
 
-      editRegister(dados : IGrid)
+      editRegister()
       {
-        alert(dados.codigo);
+        //alert(dados.codigo);
       } 
 
       deleteRegister()
