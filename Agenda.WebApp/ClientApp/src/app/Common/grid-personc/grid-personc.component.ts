@@ -22,6 +22,7 @@ export class GridPersoncComponent<T> implements OnInit {
       newRoute : string;
       dadosAPI: T[] = []; 
       url : string;
+      tableKey : string;
 
       constructor(public http : HttpClient, public router: Router) {
       }
@@ -31,7 +32,6 @@ export class GridPersoncComponent<T> implements OnInit {
       }
 
       getData(){
-        //this.url = environment.apiUrl+'/usuarios/todos'
         this.http.get<T[]>(this.url).subscribe(result => {
           this.dadosAPI = result;
         }, error => this.showError());
@@ -42,11 +42,14 @@ export class GridPersoncComponent<T> implements OnInit {
         this.router.navigate([this.newRoute]);
       }
 
-      editRegister(){
-        //alert(dados.codigo);
-      } 
+      editRegister(dados : T[]){
+        this.router.navigate([this.newRoute], dados[this.tableKey] );
 
-      deleteRegister(){
+        this.titulo = this.titulo + ' - Exclusão'
+        //alert('Chave : '+ dados[this.tableKey]  );
+      } 
+ 
+      deleteRegister(dados : T[]){
       }
 
       showError(){

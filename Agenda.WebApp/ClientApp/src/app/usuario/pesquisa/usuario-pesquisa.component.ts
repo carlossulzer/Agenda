@@ -9,29 +9,30 @@ import { IUsuario } from './../../../Models/usuarios.interface';
 
 @Component({
   selector: 'app-usuario-pesquisa',
-  templateUrl: './usuario-pesquisa.component.html',
+  templateUrl: './../../Common/grid-personc/grid-personc.component.html',  //  './usuario-pesquisa.component.html',
   styleUrls: ['./usuario-pesquisa.component.css']
 })
 
-export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> implements OnInit {
+export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
+  url = environment.apiUrl+'/usuarios/todos';
+  titulo = "Usuários";
+  newRoute = '/usuario-cadastro';
+  tableKey =  'usuarioId';
 
-   constructor(http: HttpClient, public router: Router)  {
+  cols = [
+    { field: 'usuarioId', header: 'Código', width: '15%' },
+    { field: 'nome', header: 'Nome do Usuário', width : '80%' }
+  ]; 
+
+  constructor(http: HttpClient, public router: Router)  {
        super(http, router); 
 
-    }
+  }
 
-    url = environment.apiUrl+'/usuarios/todos';
-    titulo = "Usuários";
-    newRoute = '/usuario-cadastro';
+  newRegister(){
+    alert('Novo registro - Usuario!');
+  } 
 
-    ngOnInit  (){
-      this.cols = [
-        { field: 'usuarioId', header: 'Código', width: '15%' },
-        { field: 'nome', header: 'Nome do Usuário', width : '80%' }
-      ]; 
-      
-      //this.getData(); // this.url);
-    }
 }
 
 
