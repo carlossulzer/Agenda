@@ -13,6 +13,8 @@ namespace Agenda.API.Mappings
         public CompromissosMapping()
         {
             Id(x => x.CompromissoId).Column("CompromissoId").GeneratedBy.Identity();
+                                                            //.UnsavedValue(0)
+                                                            //.Access.CamelCaseField(Prefix.Underscore);
             Map(x => x.Observacao).Not.Nullable();
             Map(x => x.DataInicial).Not.Nullable();
             Map(x => x.DataFinal).Not.Nullable();

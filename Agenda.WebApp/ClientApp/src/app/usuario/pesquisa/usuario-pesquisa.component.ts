@@ -14,7 +14,7 @@ import { IUsuario } from './../../../Models/usuarios.interface';
 })
 
 export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
-  url = environment.apiUrl+'/usuarios/todos';
+  url = environment.apiUrl+'/usuarios/getall';
   titulo = "Usuários";
   newRoute = '/usuario-cadastro';
   tableKey =  'usuarioId';
@@ -29,9 +29,9 @@ export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
 
   }
 
-  newRegister(){
+/*   newRegister(){
     alert('Novo registro - Usuario!');
-  } 
+  }  */
 
 }
 

@@ -25,14 +25,15 @@ namespace Agenda.API.Infra
         private static void InitializeSessionFactory()
         {
 
-            _sessionFactory = Fluently.Configure().Database(MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=.\SQLEXPRESS;Initial Catalog=Agenda;Integrated Security=True") 
-      
+            _sessionFactory = Fluently.Configure().Database(MsSqlConfiguration.MsSql2012.ConnectionString(@"Data Source=.\SQLEXPRESS;Initial Catalog=Agenda;Integrated Security=True")
+
                 .ShowSql()
                 )
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Program>())
                 //.ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
                 .BuildSessionFactory();
         }
+
 
         public static NHibernate.ISession OpenSession()
         {

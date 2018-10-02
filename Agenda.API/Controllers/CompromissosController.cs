@@ -12,7 +12,7 @@ namespace Agenda.API.Controllers
     public class CompromissosController : ControllerBase
     {
 
-        [HttpGet("todos")]
+        [HttpGet("GetAll")]
         public JsonResult GetAll()
 
         {
@@ -25,7 +25,18 @@ namespace Agenda.API.Controllers
 
         }
 
-        [HttpGet("grid")]
+        [HttpGet("GetId/{id}")]
+        public JsonResult GetId(int id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return new JsonResult(session.Get<Paciente>(id));
+            }
+        }
+
+
+
+        [HttpGet("Grid")]
         public JsonResult GetGrid()
 
         {
@@ -38,6 +49,9 @@ namespace Agenda.API.Controllers
                 return new JsonResult(lstCompromissos);
             }
         }
+
+
+
 
 
     }
