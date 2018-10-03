@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 import { GridPersoncComponent } from './../../Common/grid-personc/grid-personc.component';
 import { IUsuario } from './../../../Models/usuarios.interface';
+import { UsuarioService } from './../../services/usuario.service';
 
 @Component({
   selector: 'app-usuario-pesquisa',
@@ -24,9 +25,8 @@ export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
     { field: 'nome', header: 'Nome do Usuário', width : '80%' }
   ]; 
 
-  constructor(http: HttpClient, public router: Router)  {
-       super(http, router); 
-
+  constructor(http: HttpClient, public router: Router, public usuarioService : UsuarioService)  {
+       super(http, router, usuarioService); 
   }
 
 /*   newRegister(){

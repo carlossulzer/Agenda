@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 import { Message} from 'primeng/api'
-import { environment } from '../../../environments/environment';
+import { UsuarioService } from './../../services/usuario.service';
+
 
 // video marcoratti
 //https://www.youtube.com/watch?v=SKY-26MMBak
@@ -23,8 +24,8 @@ export class GridPersoncComponent<T> implements OnInit {
       dadosAPI: T[] = []; 
       url : string;
       tableKey : string;
-
-      constructor(public http : HttpClient, public router: Router) {
+      
+      constructor(public http : HttpClient, public router: Router, public usuarioService : UsuarioService) {
       }
 
       ngOnInit(){
@@ -39,6 +40,8 @@ export class GridPersoncComponent<T> implements OnInit {
 
       newRegister(){
         //this.router.navigate(['/paciente-cadastro'], pacienteId);
+        this.usuarioService.actionMode.emit("New");
+
         this.router.navigate([this.newRoute]);
       }
 

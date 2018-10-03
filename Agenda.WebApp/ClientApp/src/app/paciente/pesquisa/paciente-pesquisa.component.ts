@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { IPaciente } from './../../../Models/pacientes.interface';
 import { environment } from './../../../environments/environment';
 import { GridPersoncComponent } from './../../Common/grid-personc/grid-personc.component';
+import { UsuarioService } from './../../services/usuario.service';
 
 
 // video marcoratti
@@ -30,8 +31,8 @@ export class PacientePesquisaComponent extends GridPersoncComponent  <IPaciente>
     { field: 'telefone', header: 'Telefone', width : '20' }
   ]; 
 
-  constructor(http: HttpClient, public router: Router)  {
-       super(http, router); 
+  constructor(http: HttpClient, public router: Router, public usuarioService : UsuarioService)  {
+       super(http, router, usuarioService); 
 
   }
 

@@ -1,19 +1,18 @@
-<fieldset>
+<form [formgroup] = "form" (ngSubmit)="onSubmit()">
   <legend slider>Usuários</legend>
   <div class="fields">
       <div class="row">
           <div class="col-md-3 col-sm-12 form-group">
               <label for="id">Código</label>
-              <input type="text" ng-disabled="true" id="PessoaId" ng-model="controller.modelPessoa.id" class="form-control" disabled="disabled" popover-trigger="focus"  />
- 
+              <input type="text" ng-disabled="true" id="usuarioId" class="form-control" disabled="disabled" popover-trigger="focus" formControlName="usuarioId"  />
           </div>
       </div>
 
       <div class="row">
           <div class="col-md-6 col-sm-12 form-group">
               <label for="nomeCompleto">Nome do Usuário</label>
-               <input type="text" name="nomeCompleto" id="nomeCompleto" ng-model="controller.modelPessoa.nome" maxlength="255" class="form-control"
-                     required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus"  />
+               <input type="text" name="nomeCompleto" id="nomeCompleto"  maxlength="255" class="form-control"
+                     required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" formControlName="nome"  />
           </div>
           
       </div>
@@ -22,7 +21,7 @@
         <div class="col-md-6 col-sm-12 form-group">
             <label for="email">E-mail</label>
              <input type="text" name="email" id="email" maxlength="255" class="form-control"
-                   required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus"  />
+                   required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" formControlName="email" />
         </div>
         
     </div>
@@ -31,7 +30,7 @@
       <div class="col-md-3 col-sm-6 form-group">
           <label for="senha">Senha</label>
            <input type="password" name="senha" id="senha" maxlength="20" class="form-control"
-                 required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus"  />
+                 required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" formControlName="senha" />
       </div>
       
   </div>
@@ -39,9 +38,9 @@
       <p-footer>
             <div class="ui-dialog-buttonpane ui-helper-clearfix">
                 <button type="button" pButton icon="pi pi-times" (click)="cancel()" label="Cancelar"></button>
-                <button type="button" pButton icon="pi pi-check" (click)="save()" label="Salvar"></button>
+                <button type="button" pButton icon="pi pi-check" (click)="save()" label="Salvar" [disabled] = "!form.valid" ></button>
             </div>
         </p-footer>
 
   </div>
-</fieldset>
+</form>  
