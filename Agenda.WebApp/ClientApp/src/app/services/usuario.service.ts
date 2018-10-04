@@ -5,14 +5,32 @@ import { IUsuario } from '../../Models/usuarios.interface';
 @Injectable()
 export class UsuarioService {
 
-  actionMode = new EventEmitter<string>();
+  eventActionMode = new EventEmitter<string>();
+  private actionMode: string = "";
 
-  constructor(private http : HttpClient) { }
 
+  constructor(private http : HttpClient) { 
+    
+  }
 
-  SalvarDados(usuario : IUsuario)
+  getItensVisiveis() {
+    return this.actionMode;
+  }
+  
+  setItensVisiveis(val: string) {
+    this.actionMode = val;
+    this.eventActionMode.emit(val);
+  }
+
+  SalvarDados(usuarioDados : IUsuario)
   {
-      return this.http.post("api/usuario", usuario);
+      return this.http.post("api/usuario/SaveUpdate", usuarioDados);
+      
+  }
+
+  ExcluirDados(usuarioDados : IUsuario)
+  {
+      return this.http.post("api/usuario/Delete", usuarioDados);
       
   }
 

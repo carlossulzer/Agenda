@@ -40,19 +40,18 @@ export class GridPersoncComponent<T> implements OnInit {
 
       newRegister(){
         //this.router.navigate(['/paciente-cadastro'], pacienteId);
-        this.usuarioService.actionMode.emit("New");
-
+        this.usuarioService.setItensVisiveis("New");
         this.router.navigate([this.newRoute]);
       }
 
       editRegister(dados : T[]){
-        this.router.navigate([this.newRoute], dados[this.tableKey] );
-
-        this.titulo = this.titulo + ' - Exclusão'
-        //alert('Chave : '+ dados[this.tableKey]  );
+        this.usuarioService.setItensVisiveis("Edit");
+        this.router.navigate([this.newRoute]);
       } 
  
       deleteRegister(dados : T[]){
+        this.usuarioService.setItensVisiveis("Delete");
+        this.router.navigate([this.newRoute]);
       }
 
       showError(){

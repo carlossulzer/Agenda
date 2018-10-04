@@ -37,6 +37,7 @@ namespace Agenda.API.Controllers
         [HttpPost("SaveUpdate")]
         public void Salvar(Usuario usuario)
         {
+
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
@@ -44,7 +45,9 @@ namespace Agenda.API.Controllers
                     session.SaveOrUpdate(usuario);
                     transaction.Commit();
                 }
+
             }
+
         }
 
 

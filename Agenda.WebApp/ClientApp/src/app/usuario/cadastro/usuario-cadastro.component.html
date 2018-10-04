@@ -1,17 +1,18 @@
-<form [formgroup] = "form" (ngSubmit)="onSubmit()">
-  <legend slider>Usuários</legend>
+<form [formGroup] = "form" (ngSubmit)="onSubmit()">
+        <fieldset>
+  <legend slider>{{titulo}}</legend>
   <div class="fields">
       <div class="row">
           <div class="col-md-3 col-sm-12 form-group">
               <label for="id">Código</label>
-              <input type="text" ng-disabled="true" id="usuarioId" class="form-control" disabled="disabled" popover-trigger="focus" formControlName="usuarioId"  />
+              <input type="text" ng-disabled="true" class="form-control" disabled="disabled" popover-trigger="focus" formControlName="usuarioId"  />
           </div>
       </div>
 
       <div class="row">
           <div class="col-md-6 col-sm-12 form-group">
               <label for="nomeCompleto">Nome do Usuário</label>
-               <input type="text" name="nomeCompleto" id="nomeCompleto"  maxlength="255" class="form-control"
+               <input type="text" maxlength="255" class="form-control"
                      required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" formControlName="nome"  />
           </div>
           
@@ -20,7 +21,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-12 form-group">
             <label for="email">E-mail</label>
-             <input type="text" name="email" id="email" maxlength="255" class="form-control"
+             <input type="email" maxlength="255" class="form-control"
                    required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" formControlName="email" />
         </div>
         
@@ -29,18 +30,24 @@
     <div class="row">
       <div class="col-md-3 col-sm-6 form-group">
           <label for="senha">Senha</label>
-           <input type="password" name="senha" id="senha" maxlength="20" class="form-control"
+           <input type="password" maxlength="20" class="form-control"
                  required popover-placement="top" ng-blur="controller.nomeBlur()" popover-trigger="focus" formControlName="senha" />
       </div>
       
-  </div>
+    </div>
 
-      <p-footer>
+
+    <p-footer>
             <div class="ui-dialog-buttonpane ui-helper-clearfix">
                 <button type="button" pButton icon="pi pi-times" (click)="cancel()" label="Cancelar"></button>
-                <button type="button" pButton icon="pi pi-check" (click)="save()" label="Salvar" [disabled] = "!form.valid" ></button>
+                <button type="submit" pButton icon="pi pi-check" label="Salvar" [disabled] = "!form.valid" ></button>
+           
             </div>
-        </p-footer>
+    </p-footer>
+
 
   </div>
+
+
+</fieldset>
 </form>  
