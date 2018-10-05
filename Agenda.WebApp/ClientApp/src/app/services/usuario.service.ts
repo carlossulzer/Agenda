@@ -22,16 +22,19 @@ export class UsuarioService {
     this.eventActionMode.emit(val);
   }
 
-  SalvarDados(usuarioDados : IUsuario)
+  salvarDados(usuarioDados : IUsuario)
   {
       return this.http.post("api/usuario/SaveUpdate", usuarioDados);
       
   }
 
-  ExcluirDados(usuarioDados : IUsuario)
+  excluirDados(usuarioDados : IUsuario)
   {
       return this.http.post("api/usuario/Delete", usuarioDados);
       
   }
 
+  getData(id : number){
+    return this.http.post("api/usuario/GetId", id);
+  }
 }

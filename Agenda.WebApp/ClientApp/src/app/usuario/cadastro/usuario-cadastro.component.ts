@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Route, Router, ActivatedRoute, Routes } from '@angular/router';
 import { IUsuario } from './../../../Models/usuarios.interface';
 import { UsuarioService } from './../../services/usuario.service';
 
 import 'rxjs/add/operator/map';
+import { Observable } from '../../../../node_modules/rxjs';
 
 @Component({
   
@@ -19,10 +20,12 @@ export class UsuarioCadastroComponent implements OnInit {
   form : FormGroup;
   titulo : string;
   actionMode : string;
+  action : string;
   usuario : IUsuario = <IUsuario>{};
   idUsuario : number;
+  sessionId: Observable<string>;
 
-  constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router) {
+  constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute) {
 
     this.form = fb.group({ 
       "usuarioId" : [""],
@@ -35,15 +38,34 @@ export class UsuarioCadastroComponent implements OnInit {
      console.log(this.actionMode);
    }
 
-   
-
   ngOnInit() {
+
+
+    this.route.queryParams.subscribe(params => { 
+                                                   this.idUsuario = params['id'] || 0; 
+                                                   this.action = params['action'] || 'New';
+                                               });
+
+
     if (this.actionMode == "New")
+    {
       this.titulo = "Usuário (inclusão)"
-   else if (this.actionMode === "Edit")
-      this.titulo = "Usuário (alteração)"
-   else if (this.actionMode === "Delete")
-      this.titulo = "Usuário (exclusão)"
+    }
+    else if (this.actionMode === "Edit")
+    {
+      this.titulo = "Usuário (alteração)";
+      this.getData(this.idUsuario);
+    }
+    else if (this.actionMode === "Delete")
+    {
+      this.titulo = "Usuário (exclusão)";
+      this.getData(this.idUsuario);
+    }
+  }
+
+  getData(id : number){
+    //this.usuario = this.usuarioService.getData(this.idUsuario);
+    //this.displayData();
   }
 
   onSubmit(){
@@ -54,12 +76,12 @@ export class UsuarioCadastroComponent implements OnInit {
     this.usuario.email = this.form.controls["email"].value;
     this.usuario.senha = this.form.controls["senha"].value;
 
-    this.usuarioService.SalvarDados(this.usuario).subscribe(response => {
+    this.usuarioService.salvarDados(this.usuario).subscribe(response => {
               this.router.navigate(['/usuario-pesquisa']);
     });
   };
 
-  loadData(){
+  displayData(){
     this.form.get("usuarioId").setValue(this.usuario.usuarioId);
     this.form.get("nome").setValue(this.usuario.nome);
     this.form.get("email").setValue(this.usuario.email);
@@ -68,12 +90,10 @@ export class UsuarioCadastroComponent implements OnInit {
 
   edit(usuarioDados : IUsuario){
     this.usuario = usuarioDados;
-    this.loadData();
   };
 
   cancel(){
     this.usuario = <IUsuario>{};
-    this.loadData();
 
     // this.form.get("usuarioId").setValue(0);
     // this.form.get("nome").setValue("");
@@ -84,9 +104,8 @@ export class UsuarioCadastroComponent implements OnInit {
   };
 
   delete(usuarioDados : IUsuario){
-    this.loadData();
     if (confirm("Deseja excluir o Usuário?")) {
-      this.usuarioService.ExcluirDados(usuarioDados).
+      this.usuarioService.excluirDados(usuarioDados).
        subscribe(response => {
         this.router.navigate(['/usuario-pesquisa']);
       });

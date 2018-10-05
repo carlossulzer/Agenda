@@ -62,7 +62,7 @@ import { UsuarioService } from './services/usuario.service';
     CodeHighlighterModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'usuario-cadastro/:id', component: UsuarioCadastroComponent },
+     // { path: 'usuario-cadastro/:id/:action', component: UsuarioCadastroComponent },
       { path: 'usuario-cadastro', component: UsuarioCadastroComponent },
       { path: 'usuario-pesquisa', component: UsuarioPesquisaComponent },
       { path: 'paciente-cadastro', component: PacienteCadastroComponent },

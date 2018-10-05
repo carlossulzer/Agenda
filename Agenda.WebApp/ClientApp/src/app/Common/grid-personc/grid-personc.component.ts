@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 
 import { Message} from 'primeng/api'
 import { UsuarioService } from './../../services/usuario.service';
+import { Observable } from '../../../../node_modules/rxjs';
 
 
 // video marcoratti
@@ -24,6 +25,7 @@ export class GridPersoncComponent<T> implements OnInit {
       dadosAPI: T[] = []; 
       url : string;
       tableKey : string;
+      
       
       constructor(public http : HttpClient, public router: Router, public usuarioService : UsuarioService) {
       }
@@ -46,12 +48,12 @@ export class GridPersoncComponent<T> implements OnInit {
 
       editRegister(dados : T[]){
         this.usuarioService.setItensVisiveis("Edit");
-        this.router.navigate([this.newRoute]);
+        this.router.navigate([this.newRoute], { queryParams: { id: dados[this.tableKey], action : 'Edit' } });
       } 
  
       deleteRegister(dados : T[]){
         this.usuarioService.setItensVisiveis("Delete");
-        this.router.navigate([this.newRoute]);
+        this.router.navigate([this.newRoute], { queryParams: { id: dados[this.tableKey], action : 'Delete' } });
       }
 
       showError(){
