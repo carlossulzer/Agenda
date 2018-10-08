@@ -43,7 +43,9 @@ export class GridPersoncComponent<T> implements OnInit {
       newRegister(){
         //this.router.navigate(['/paciente-cadastro'], pacienteId);
         this.usuarioService.setItensVisiveis("New");
-        this.router.navigate([this.newRoute]);
+        //this.router.navigate([this.newRoute]);
+        this.router.navigate([this.newRoute], { queryParams: { action : 'New' } });
+
       }
 
       editRegister(dados : T[]){

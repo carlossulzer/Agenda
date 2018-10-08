@@ -5,7 +5,7 @@ import { IUsuario } from './../../../Models/usuarios.interface';
 import { UsuarioService } from './../../services/usuario.service';
 
 import 'rxjs/add/operator/map';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Observable, Subscriber, Subscription } from '../../../../node_modules/rxjs';
 
 @Component({
   
@@ -24,6 +24,7 @@ export class UsuarioCadastroComponent implements OnInit {
   usuario : IUsuario = <IUsuario>{};
   idUsuario : number;
   sessionId: Observable<string>;
+  inscricao : Subscription;
 
   constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute) {
 
@@ -41,12 +42,11 @@ export class UsuarioCadastroComponent implements OnInit {
   ngOnInit() {
 
 
-    this.route.queryParams.subscribe(params => { 
+    this.inscricao = this.route.queryParams.subscribe(params => { 
                                                    this.idUsuario = params['id'] || 0; 
                                                    this.action = params['action'] || 'New';
                                                });
-
-
+  
     if (this.actionMode == "New")
     {
       this.titulo = "Usuário (inclusão)"
@@ -66,6 +66,10 @@ export class UsuarioCadastroComponent implements OnInit {
   getData(id : number){
     //this.usuario = this.usuarioService.getData(this.idUsuario);
     //this.displayData();
+  }
+
+  ngOnDestroy() {
+    this.inscricao.unsubscribe();
   }
 
   onSubmit(){
