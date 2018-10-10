@@ -10,7 +10,7 @@ dotnet tool install -g FluentMigrator.DotNet.Cli
 
 Rodar Migration
 ====================================================================================
-Entrar na pasta raiz do projeto
+Entrar na pasta raiz do projeto 'Migration'
 
 Compilar o projeto para gerar a DLL com os scripts atualizados
 

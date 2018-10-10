@@ -1,11 +1,12 @@
-import { Observable } from 'rxjs/Observable';
-import { IUsuario } from './../../../Models/usuarios.interface';
-import { Component, Inject, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 import { Message} from 'primeng/api'
+import { UsuarioService } from './../../services/usuario.service';
+import { Observable } from '../../../../node_modules/rxjs';
+
 
 // video marcoratti
 //https://www.youtube.com/watch?v=SKY-26MMBak
@@ -17,48 +18,48 @@ import { Message} from 'primeng/api'
 })
 
 export class GridPersoncComponent<T> implements OnInit {
-      public titulo : string;
+      titulo : string;
       cols: any[];
       msgs: Message[] = [];
       newRoute : string;
-      //dadosAPI: any[] = []; 
       dadosAPI: T[] = []; 
       url : string;
-
-      constructor(public http : HttpClient, public router: Router) 
-      {
-       
+      tableKey : string;
+      
+      
+      constructor(public http : HttpClient, public router: Router, public usuarioService : UsuarioService) {
       }
 
       ngOnInit(){
-         this.getData(this.http, this.url);
+         this.getData();
       }
 
-
-      getData(http: HttpClient, urlApi : string){
-        http.get<T[]>(urlApi).subscribe(result => {
+      getData(){
+        this.http.get<T[]>(this.url).subscribe(result => {
           this.dadosAPI = result;
         }, error => this.showError());
       }
 
-      newRegister()
-      {
+      newRegister(){
         //this.router.navigate(['/paciente-cadastro'], pacienteId);
-        this.router.navigate([this.newRoute]);
+        this.usuarioService.setItensVisiveis("New");
+
+        this.router.navigate([this.newRoute], { queryParams: { action : 'New', id: 0 } });
+
+
       }
 
-      editRegister()
-      {
-        //alert(dados.codigo);
+      editRegister(dados : T[]){
+        this.usuarioService.setItensVisiveis("Edit");
+        this.router.navigate([this.newRoute], { queryParams: { action : 'Edit', id: dados[this.tableKey] } });
       } 
-
-      deleteRegister()
-      {
-
+ 
+      deleteRegister(dados : T[]){
+        this.usuarioService.setItensVisiveis("Delete");
+        this.router.navigate([this.newRoute], { queryParams: { action : 'Delete', id: dados[this.tableKey] } });
       }
 
-      showError() 
-      {
+      showError(){
         this.msgs = [];
         this.msgs.push( { severity:'error', summary:'Erro : ', detail: "Erro ao obter os dados (API)"});
       }

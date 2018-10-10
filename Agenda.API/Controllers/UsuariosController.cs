@@ -2,6 +2,7 @@
 using Agenda.Negocios.DTO;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
+using System.Collections;
 using System.Linq;
 
 namespace Agenda.API.Controllers
@@ -11,21 +12,56 @@ namespace Agenda.API.Controllers
     public class UsuariosController : ControllerBase
     {
 
-        [HttpGet("todos")]
+        [HttpGet("GetAll")]
         public JsonResult GetAll()
-
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 var lstUsuarios = session.Query<Usuario>().ToList();
                 return new JsonResult(lstUsuarios);
-
-                //string hql = "from Usuario";
-                //IQuery query = session.CreateQuery(hql);
-                //IList<Usuario> lstUsuarios = query.List<Usuario>();
-                //return new JsonResult(lstUsuarios);
             }
 
+        }
+
+
+        [HttpGet("GetId/{id}")]
+        public JsonResult GetId(int id )
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return new JsonResult(session.Get<Usuario>(id));
+            }
+        }
+
+
+        [HttpPost("SaveUpdate")]
+        public void Salvar(Usuario usuario)
+        {
+
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(usuario);
+                    transaction.Commit();
+                }
+
+            }
+
+        }
+
+
+        [HttpDelete("Delete")]
+        public void Excluir(Usuario usuario)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.Delete(usuario);
+                    transaction.Commit();
+                }
+            }
         }
 
     }

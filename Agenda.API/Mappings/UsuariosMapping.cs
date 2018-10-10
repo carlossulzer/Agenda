@@ -8,8 +8,13 @@ namespace Agenda.API.Mappings
         public UsuariosMapping()
         {
             Id(x => x.UsuarioId).Column("UsuarioId").GeneratedBy.Identity();
+                                                    //.UnsavedValue(0)
+                                                    //.Access.CamelCaseField(Prefix.Underscore);
             Map(x => x.Nome).Not.Nullable();
-           
+            Map(x => x.Email).Not.Nullable();
+            Map(x => x.Senha).Not.Nullable();
+
+
         }
     }
 }

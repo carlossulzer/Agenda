@@ -12,7 +12,7 @@ namespace Agenda.API.Controllers
     public class PacientesController : ControllerBase
     {
 
-        [HttpGet("todos")]
+        [HttpGet("GetAll")]
         public JsonResult GetAll()
 
         {
@@ -24,8 +24,17 @@ namespace Agenda.API.Controllers
             }
         }
 
+        [HttpGet("GetId/{id}")]
+        public JsonResult GetId(int id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return new JsonResult(session.Get<Paciente>(id));
+            }
+        }
 
-        [HttpGet("grid")]
+
+        [HttpGet("Grid")]
         public JsonResult GetGrid()
 
         {
