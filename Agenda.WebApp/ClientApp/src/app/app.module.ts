@@ -30,6 +30,7 @@ import { GridPersoncComponent } from './Common/grid-personc/grid-personc.compone
 import { UsuarioPesquisaComponent } from './usuario/pesquisa/usuario-pesquisa.component';
 //import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ngx-currency/src/currency-mask.config";
 import { UsuarioService } from './services/usuario.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { UsuarioService } from './services/usuario.service';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
     NgxCurrencyModule,
@@ -63,7 +65,7 @@ import { UsuarioService } from './services/usuario.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'usuario-cadastro/:action/:id', component: UsuarioCadastroComponent },
-     // { path: 'usuario-cadastro', component: UsuarioCadastroComponent },
+      { path: 'usuario-cadastro', component: UsuarioCadastroComponent },
       { path: 'usuario-pesquisa', component: UsuarioPesquisaComponent },
       { path: 'paciente-cadastro', component: PacienteCadastroComponent },
       { path: 'paciente-pesquisa', component: PacientePesquisaComponent},

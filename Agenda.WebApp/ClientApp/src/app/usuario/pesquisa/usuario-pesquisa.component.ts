@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -25,8 +26,8 @@ export class UsuarioPesquisaComponent extends GridPersoncComponent<IUsuario> {
     { field: 'nome', header: 'Nome do Usuário', width : '80%' }
   ]; 
 
-  constructor(http: HttpClient, public router: Router, public usuarioService : UsuarioService)  {
-       super(http, router, usuarioService); 
+  constructor(httpClient: HttpClient, public router: Router, public usuarioService : UsuarioService)  {
+       super(httpClient, router, usuarioService); 
   }
 
 }

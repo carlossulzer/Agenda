@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -27,7 +28,7 @@ export class GridPersoncComponent<T> implements OnInit {
       tableKey : string;
       
       
-      constructor(public http : HttpClient, public router: Router, public usuarioService : UsuarioService) {
+      constructor(public httpClient : HttpClient, public router: Router, public usuarioService : UsuarioService) {
       }
 
       ngOnInit(){
@@ -35,7 +36,7 @@ export class GridPersoncComponent<T> implements OnInit {
       }
 
       getData(){
-        this.http.get<T[]>(this.url).subscribe(result => {
+        this.httpClient.get<T[]>(this.url).subscribe(result => {
           this.dadosAPI = result;
         }, error => this.showError());
       }

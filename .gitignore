@@ -223,10 +223,15 @@ project.lock.json
 !gruntfile.js
 !gulpfile.js
 !**/tasks/*.js
-!src/Unio.Nucleos.Sdk.Front.Web/build/**/*
-!src/spa/Dev.SPA.WebApp/
-!**/Unio.Nucleos.Sdk.Scaffolding.TypescriptTools.Web/lib/**/*.ts
-!**/Unio.Nucleos.Sdk.Scaffolding.TypescriptTools.Web/lib/typings
+
 !**/wwwroot/viewer/**/*
 
 !**/*.ps1
+
+Agenda.API/bin/Debug/
+Agenda.API/obj/
+Agenda.Global/obj/
+Agenda.Migrations/obj/
+Agenda.Negocios/bin/Debug/
+Agenda.Negocios/obj/
+.vs/agenda/v15

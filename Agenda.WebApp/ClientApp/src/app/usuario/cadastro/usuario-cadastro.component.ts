@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Route, Router, ActivatedRoute, Routes } from '@angular/router';
@@ -26,7 +27,9 @@ export class UsuarioCadastroComponent implements OnInit {
   sessionId: Observable<string>;
   inscricao : Subscription;
 
-  constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute) {
+  
+
+  constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute, private http: Http) {
 
     this.form = fb.group({ 
       "usuarioId" : [""],
@@ -64,8 +67,13 @@ export class UsuarioCadastroComponent implements OnInit {
   }
 
   getData(id : number){
-    //this.usuario = this.usuarioService.getData(this.idUsuario);
-    //this.displayData();
+
+    this.usuarioService.getData(this.idUsuario).subscribe(
+      data => this.usuarioResp = data,
+      error => alert(error),
+      () => console.log(this.usuario)
+    );
+    this.displayData();
   }
 
   ngOnDestroy() {
