@@ -1,12 +1,13 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Route, Router, ActivatedRoute, Routes } from '@angular/router';
 import { IUsuario } from './../../../Models/usuarios.interface';
 import { UsuarioService } from './../../services/usuario.service';
 
 import 'rxjs/add/operator/map';
 import { Observable, Subscriber, Subscription } from '../../../../node_modules/rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   
@@ -26,16 +27,14 @@ export class UsuarioCadastroComponent implements OnInit {
   idUsuario : number = 0;
   sessionId: Observable<string>;
   inscricao : Subscription;
-
-  
+  usuarioResp : IUsuario;
 
   constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute, private http: Http) {
-
     this.form = fb.group({ 
-      "usuarioId" : [""],
-      "nome" : ["", Validators.required ],
-      "email" : ["", Validators.required],
-      "senha" : ["", Validators.required]
+      usuarioId: new FormControl(''),
+      nome: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      senha: new FormControl('', Validators.required)
      })
 
      this.actionMode = this.usuarioService.getItensVisiveis();
@@ -43,13 +42,10 @@ export class UsuarioCadastroComponent implements OnInit {
    }
 
   ngOnInit() {
-
-
     this.inscricao = this.route.queryParams.subscribe(params => {                                                    
                                                    this.action = params['action'] || 'New';
                                                    this.idUsuario = params['id'] || 0; 
                                                });
-  
     if (this.actionMode == "New")
     {
       this.titulo = "Usuário (inclusão)"
@@ -67,13 +63,27 @@ export class UsuarioCadastroComponent implements OnInit {
   }
 
   getData(id : number){
-
-    this.usuarioService.getData(this.idUsuario).subscribe(
-      data => this.usuarioResp = data,
-      error => alert(error),
-      () => console.log(this.usuario)
-    );
-    this.displayData();
+    this.usuarioService.getData(id).subscribe(
+      data => { 
+      this.usuarioResp = data;
+      this.displayData();
+      //console.log(this.usuarioResp);
+        },
+        (err: HttpErrorResponse) => {
+         if (err.error instanceof Error) 
+            {
+              //A client-side or network error occurred.				 
+              console.log('An error occurred:', err.error.message);
+            } 
+            else 
+            {
+              //Backend returns unsuccessful response codes such as 404, 500 etc.				 
+              console.log('Backend returned status code: ', err.status);
+              console.log('Response body:', err.error);
+            }
+        }		  
+    );	   
+    
   }
 
   ngOnDestroy() {
@@ -81,23 +91,23 @@ export class UsuarioCadastroComponent implements OnInit {
   }
 
   onSubmit(){
-    this.idUsuario =   !this.form.controls["usuarioId"].value  ? 0 : +this.form.controls["usuarioId"].value;
+    this.idUsuario = !this.form.controls["usuarioId"].value  ? 0 : +this.form.controls["usuarioId"].value;
 
-    this.usuario.usuarioId = this.idUsuario;
-    this.usuario.nome = this.form.controls["nome"].value;
-    this.usuario.email = this.form.controls["email"].value;
-    this.usuario.senha = this.form.controls["senha"].value;
+    this.usuarioResp.usuarioId = this.idUsuario;
+    this.usuarioResp.nome = this.form.controls["nome"].value;
+    this.usuarioResp.email = this.form.controls["email"].value;
+    this.usuarioResp.senha = this.form.controls["senha"].value;
 
-    this.usuarioService.salvarDados(this.usuario).subscribe(response => {
+    this.usuarioService.salvarDados(this.usuarioResp).subscribe(response => {
               this.router.navigate(['/usuario-pesquisa']);
     });
   };
 
   displayData(){
-    this.form.get("usuarioId").setValue(this.usuario.usuarioId);
-    this.form.get("nome").setValue(this.usuario.nome);
-    this.form.get("email").setValue(this.usuario.email);
-    this.form.get("senha").setValue(this.usuario.senha);
+    this.form.get("usuarioId").setValue(this.usuarioResp.usuarioId);
+    this.form.get("nome").setValue(this.usuarioResp.nome);
+    this.form.get("email").setValue(this.usuarioResp.email);
+    this.form.get("senha").setValue(this.usuarioResp.senha);
   }
 
   edit(usuarioDados : IUsuario){
