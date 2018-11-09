@@ -14,7 +14,6 @@ export class UsuarioService {
 
   eventActionMode = new EventEmitter<string>();
   private actionMode: string = "";
-  usuario : IUsuario = <IUsuario>{};
 
   constructor(private http : HttpClient) { }
 
@@ -32,7 +31,7 @@ export class UsuarioService {
   }
 
   excluirDados(usuarioDados : IUsuario){
-      return this.http.post(environment.apiUrl+"/usuarios/Delete", usuarioDados);
+      return this.http.delete(environment.apiUrl+"/usuarios/Delete", usuarioDados);
   }
 
   getData(codigo : number) : Observable<IUsuario>{

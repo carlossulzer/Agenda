@@ -1,16 +1,15 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Route, Router, ActivatedRoute, Routes } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IUsuario } from './../../../Models/usuarios.interface';
 import { UsuarioService } from './../../services/usuario.service';
 
 import 'rxjs/add/operator/map';
-import { Observable, Subscriber, Subscription } from '../../../../node_modules/rxjs';
+import { Observable, Subscription } from '../../../../node_modules/rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  
   selector: 'app-usuario-cadastro',
   templateUrl: './usuario-cadastro.component.html',
   styleUrls: ['./usuario-cadastro.component.css']
@@ -27,7 +26,6 @@ export class UsuarioCadastroComponent implements OnInit {
   idUsuario : number = 0;
   sessionId: Observable<string>;
   inscricao : Subscription;
-  usuarioResp : IUsuario;
 
   constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute, private http: Http) {
     this.form = fb.group({ 
@@ -41,33 +39,35 @@ export class UsuarioCadastroComponent implements OnInit {
      console.log(this.actionMode);
    }
 
-  ngOnInit() {
-    this.inscricao = this.route.queryParams.subscribe(params => {                                                    
-                                                   this.action = params['action'] || 'New';
-                                                   this.idUsuario = params['id'] || 0; 
-                                               });
-    if (this.actionMode == "New")
+   ngOnInit() {
+   this.inscricao = this.route.queryParams.subscribe(params => {                                                    
+                                                 this.action = params['action'] || 'New';
+                                                 this.idUsuario = params['id'] || 0; 
+                                              });
+    if (this.action === "New")
     {
       this.titulo = "Usuário (inclusão)"
     }
-    else if (this.actionMode === "Edit")
+    else if (this.action === "Edit")
     {
       this.titulo = "Usuário (alteração)";
       this.getData(this.idUsuario);
+      this.FormState(true);
     }
-    else if (this.actionMode === "Delete")
+    else if (this.action === "Delete")
     {
       this.titulo = "Usuário (exclusão)";
       this.getData(this.idUsuario);
+      this.FormState(false);
     }
   }
 
   getData(id : number){
     this.usuarioService.getData(id).subscribe(
       data => { 
-      this.usuarioResp = data;
+      this.usuario = data;
       this.displayData();
-      //console.log(this.usuarioResp);
+      //console.log(this.usuario);
         },
         (err: HttpErrorResponse) => {
          if (err.error instanceof Error) 
@@ -91,23 +91,19 @@ export class UsuarioCadastroComponent implements OnInit {
   }
 
   onSubmit(){
-    this.idUsuario = !this.form.controls["usuarioId"].value  ? 0 : +this.form.controls["usuarioId"].value;
+    this.usuario.usuarioId = this.idUsuario;
+    this.usuario.nome = this.form.controls["nome"].value;
+    this.usuario.email = this.form.controls["email"].value;
+    this.usuario.senha = this.form.controls["senha"].value;
 
-    this.usuarioResp.usuarioId = this.idUsuario;
-    this.usuarioResp.nome = this.form.controls["nome"].value;
-    this.usuarioResp.email = this.form.controls["email"].value;
-    this.usuarioResp.senha = this.form.controls["senha"].value;
-
-    this.usuarioService.salvarDados(this.usuarioResp).subscribe(response => {
-              this.router.navigate(['/usuario-pesquisa']);
-    });
+    this.usuarioService.salvarDados(this.usuario).subscribe(response => { this.router.navigate(['/usuario-pesquisa']); });
   };
 
   displayData(){
-    this.form.get("usuarioId").setValue(this.usuarioResp.usuarioId);
-    this.form.get("nome").setValue(this.usuarioResp.nome);
-    this.form.get("email").setValue(this.usuarioResp.email);
-    this.form.get("senha").setValue(this.usuarioResp.senha);
+    this.form.get("usuarioId").setValue(this.usuario.usuarioId); 
+    this.form.get("nome").setValue(this.usuario.nome);
+    this.form.get("email").setValue(this.usuario.email);
+    this.form.get("senha").setValue(this.usuario.senha);
   }
 
   edit(usuarioDados : IUsuario){
@@ -115,41 +111,26 @@ export class UsuarioCadastroComponent implements OnInit {
   };
 
   cancel(){
-    this.usuario = <IUsuario>{};
-
-    // this.form.get("usuarioId").setValue(0);
-    // this.form.get("nome").setValue("");
-    // this.form.get("email").setValue("");
-    // this.form.get("senha").setValue("");
-
     this.router.navigate(['/usuario-pesquisa']);
   };
 
-  delete(usuarioDados : IUsuario){
+  delete(){
     if (confirm("Deseja excluir o Usuário?")) {
-      this.usuarioService.excluirDados(usuarioDados).
+      this.usuarioService.excluirDados(this.usuario).
        subscribe(response => {
         this.router.navigate(['/usuario-pesquisa']);
+        error => console.error(error);
+        
       });
     }
   };
   
+  // Disables/enables each form control based on 'this.formDisabled'
+  FormState(state : boolean) {
+    Object.keys(this.form.controls).forEach((controlName) => {
+        this.form.controls[controlName][(state ? 'enable' : 'disable')](); 
+  });
+}
 
 }
 
-/*
-save(usuario: IUsuario){
-  var id = string.IsNullOrEmpty(txtCodigo.Text) ? 0 : Convert.ToInt32(txtCodigo.Text);
-  
-  var contato = _repositorio.ObterPor(id) ?? new Contato();
-  
-  contato.Nome = txtNome.Text;
-  
-  if (ValidaContato(contato))
-  {
-      _repositorio.Salvar(contato);
-      CarregaGrid();
-      LimpaControles();
-  }
-}
-*/
