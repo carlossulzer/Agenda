@@ -11,7 +11,6 @@ namespace Agenda.API.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-
         [HttpGet("GetAll")]
         public JsonResult GetAll()
         {
@@ -20,9 +19,7 @@ namespace Agenda.API.Controllers
                 var lstUsuarios = session.Query<Usuario>().ToList();
                 return new JsonResult(lstUsuarios);
             }
-
         }
-
 
         [HttpGet("GetId/{id}")]
         public JsonResult GetId(int id )
@@ -33,11 +30,9 @@ namespace Agenda.API.Controllers
             }
         }
 
-
         [HttpPost("SaveUpdate")]
         public void Salvar(Usuario usuario)
         {
-
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
@@ -45,24 +40,20 @@ namespace Agenda.API.Controllers
                     session.SaveOrUpdate(usuario);
                     transaction.Commit();
                 }
-
             }
-
         }
 
-
-        [HttpDelete("Delete")]
-        public void Excluir(Usuario usuario)
+        [HttpDelete("Delete/{id}")]
+        public void Excluir(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    session.Delete(usuario);
+                    session.Delete(session.Query<Usuario>().FirstOrDefault(c => c.UsuarioId == id));
                     transaction.Commit();
                 }
             }
         }
-
     }
 }

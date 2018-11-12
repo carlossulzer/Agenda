@@ -8,6 +8,7 @@ import { UsuarioService } from './../../services/usuario.service';
 import 'rxjs/add/operator/map';
 import { Observable, Subscription } from '../../../../node_modules/rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-usuario-cadastro',
@@ -27,7 +28,8 @@ export class UsuarioCadastroComponent implements OnInit {
   sessionId: Observable<string>;
   inscricao : Subscription;
 
-  constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, private route: ActivatedRoute, private http: Http) {
+  constructor(private fb : FormBuilder, public usuarioService : UsuarioService, public router: Router, 
+              private route: ActivatedRoute, private http: Http, private confirmationService: ConfirmationService) {
     this.form = fb.group({ 
       usuarioId: new FormControl(''),
       nome: new FormControl('', Validators.required),
@@ -73,13 +75,13 @@ export class UsuarioCadastroComponent implements OnInit {
          if (err.error instanceof Error) 
             {
               //A client-side or network error occurred.				 
-              console.log('An error occurred:', err.error.message);
+              console.log('Ocorreu um erro:', err.error.message);
             } 
             else 
             {
               //Backend returns unsuccessful response codes such as 404, 500 etc.				 
-              console.log('Backend returned status code: ', err.status);
-              console.log('Response body:', err.error);
+              console.log('Erro na API: ', err.status);
+              console.log('Erro:', err.error);
             }
         }		  
     );	   
@@ -115,15 +117,37 @@ export class UsuarioCadastroComponent implements OnInit {
   };
 
   delete(){
+    /*
     if (confirm("Deseja excluir o Usuário?")) {
-      this.usuarioService.excluirDados(this.usuario).
+      this.usuarioService.excluirDados(this.usuario.usuarioId).
        subscribe(response => {
         this.router.navigate(['/usuario-pesquisa']);
         error => console.error(error);
         
       });
     }
+*/
+    this.confirmationService.confirm({
+      message: 'Deseja excluir o Usuário?',
+      accept: () => {
+        this.usuarioService.excluirDados(this.usuario.usuarioId).
+        subscribe(response => {
+         this.router.navigate(['/usuario-pesquisa']);
+         error => console.error(error);
+         
+       });
+      }
+  });
+
+
+
   };
+
+
+
+
+
+
   
   // Disables/enables each form control based on 'this.formDisabled'
   FormState(state : boolean) {

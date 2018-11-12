@@ -1,5 +1,15 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <fieldset>
+            <p-confirmDialog header="Exclusão" icon="pi pi-exclamation-triangle" width="425" #cd>
+                    <p-footer>
+                        <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()" class="ui-button-danger"></button>
+                        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()" class="ui-button-success"></button>
+                    </p-footer>
+                </p-confirmDialog>
+
+
+
+
         <legend slider>{{titulo}}</legend>
         <div class="fields">
             <div class="row">

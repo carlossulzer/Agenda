@@ -30,8 +30,8 @@ export class UsuarioService {
       return this.http.post(environment.apiUrl+"/usuarios/SaveUpdate", usuarioDados);
   }
 
-  excluirDados(usuarioDados : IUsuario){
-      return this.http.delete(environment.apiUrl+"/usuarios/Delete", usuarioDados);
+  excluirDados(codigo : number){
+      return this.http.delete(environment.apiUrl+`/usuarios/Delete/${codigo}`);
   }
 
   getData(codigo : number) : Observable<IUsuario>{

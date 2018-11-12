@@ -24,7 +24,7 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { ToolbarModule} from 'primeng/toolbar';
 import { InputTextModule} from 'primeng/inputtext';
-import { MessageService} from 'primeng/api'
+import { MessageService, ConfirmationService} from 'primeng/api'
 import { ConfirmDialogModule, SharedModule, MessagesModule, CodeHighlighterModule } from 'primeng/primeng';
 import { GridPersoncComponent } from './Common/grid-personc/grid-personc.component';
 import { UsuarioPesquisaComponent } from './usuario/pesquisa/usuario-pesquisa.component';
@@ -43,7 +43,7 @@ import { HttpModule } from '@angular/http';
     GridPersoncComponent,
     UsuarioCadastroComponent,
     UsuarioPesquisaComponent
-      ],
+    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
@@ -57,7 +57,7 @@ import { HttpModule } from '@angular/http';
     TableModule,
     PaginatorModule,
     ToolbarModule,
-    ConfirmDialogModule,
+     ConfirmDialogModule,
     InputTextModule,
     SharedModule,
     MessagesModule,
@@ -72,7 +72,7 @@ import { HttpModule } from '@angular/http';
       { path: 'compromisso', component: CompromissoComponent },
     ])
   ],
-  providers: [MessageService, UsuarioService],
+  providers: [MessageService, UsuarioService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

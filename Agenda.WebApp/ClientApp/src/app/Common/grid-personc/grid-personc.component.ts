@@ -11,6 +11,7 @@ import { Observable } from '../../../../node_modules/rxjs';
 
 // video marcoratti
 //https://www.youtube.com/watch?v=SKY-26MMBak
+//https://www.youtube.com/watch?v=ube-_pZRlV4 - task
 
 @Component({
   selector: 'app-grid-personc',
