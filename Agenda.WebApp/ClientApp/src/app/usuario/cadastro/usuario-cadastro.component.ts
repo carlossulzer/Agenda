@@ -1,5 +1,5 @@
 import { Http } from '@angular/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IUsuario } from './../../../Models/usuarios.interface';
@@ -63,6 +63,13 @@ export class UsuarioCadastroComponent implements OnInit {
       this.FormState(false);
     }
   }
+  
+  // Coloca o foco no campo nomedo usuario
+  @ViewChild('nomeUsuario') inputEl:ElementRef;
+
+  ngAfterViewInit() {
+      setTimeout(() => this.inputEl.nativeElement.focus());
+  }
 
   getData(id : number){
     this.usuarioService.getData(id).subscribe(
@@ -85,7 +92,6 @@ export class UsuarioCadastroComponent implements OnInit {
             }
         }		  
     );	   
-    
   }
 
   ngOnDestroy() {
@@ -117,44 +123,23 @@ export class UsuarioCadastroComponent implements OnInit {
   };
 
   delete(){
-    /*
-    if (confirm("Deseja excluir o Usuário?")) {
-      this.usuarioService.excluirDados(this.usuario.usuarioId).
-       subscribe(response => {
-        this.router.navigate(['/usuario-pesquisa']);
-        error => console.error(error);
-        
-      });
-    }
-*/
     this.confirmationService.confirm({
-      message: 'Deseja excluir o Usuário?',
-      accept: () => {
-        this.usuarioService.excluirDados(this.usuario.usuarioId).
-        subscribe(response => {
-         this.router.navigate(['/usuario-pesquisa']);
-         error => console.error(error);
-         
-       });
-      }
-  });
-
-
-
+        message: 'Deseja excluir o Usuário?',
+        accept: () => {
+                        this.usuarioService.excluirDados(this.usuario.usuarioId).subscribe(response => {
+                                 this.router.navigate(['/usuario-pesquisa']);
+                                 error => console.error(error);
+                      });
+        }
+    });
   };
 
-
-
-
-
-
-  
   // Disables/enables each form control based on 'this.formDisabled'
   FormState(state : boolean) {
-    Object.keys(this.form.controls).forEach((controlName) => {
-        this.form.controls[controlName][(state ? 'enable' : 'disable')](); 
-  });
-}
+       Object.keys(this.form.controls).forEach((controlName) => {
+           this.form.controls[controlName][(state ? 'enable' : 'disable')](); 
+     });
+  }
 
 }
 

@@ -1,14 +1,11 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <fieldset>
-            <p-confirmDialog header="Exclusão" icon="pi pi-exclamation-triangle" width="425" #cd>
-                    <p-footer>
-                        <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()" class="ui-button-danger"></button>
-                        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()" class="ui-button-success"></button>
-                    </p-footer>
-                </p-confirmDialog>
-
-
-
+        <p-confirmDialog header="Exclusão" icon="pi pi-exclamation-triangle" width="425" #cd>
+            <p-footer>
+                <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()" class="ui-button-danger"></button>
+                <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()" class="ui-button-success"></button>
+            </p-footer>
+        </p-confirmDialog>
 
         <legend slider>{{titulo}}</legend>
         <div class="fields">
@@ -24,9 +21,8 @@
                 <div class="col-md-6 col-sm-12 form-group">
                     <label for="nomeCompleto">Nome do Usuário</label>
                     <input type="text" maxlength="255" class="form-control" required popover-placement="top" ng-blur="controller.nomeBlur()"
-                        popover-trigger="focus" formControlName="nome" />
+                        popover-trigger="focus" formControlName="nome" #nomeUsuario/>
                 </div>
-
             </div>
 
             <div class="row">
@@ -35,7 +31,6 @@
                     <input type="email" maxlength="255" class="form-control" required popover-placement="top" ng-blur="controller.nomeBlur()"
                         popover-trigger="focus" formControlName="email" />
                 </div>
-
             </div>
 
             <div class="row">
@@ -44,9 +39,7 @@
                     <input type="password" maxlength="20" class="form-control" required popover-placement="top" ng-blur="controller.nomeBlur()"
                         popover-trigger="focus" formControlName="senha" />
                 </div>
-
             </div>
-
 
             <p-footer>
                 <div class="ui-dialog-buttonpane ui-helper-clearfix">
@@ -56,10 +49,6 @@
 
                 </div>
             </p-footer>
-
-
         </div>
-
-
     </fieldset>
 </form>
