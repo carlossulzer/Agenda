@@ -64,7 +64,7 @@ export class UsuarioCadastroComponent implements OnInit {
     }
   }
   
-  // Coloca o foco no campo nomedo usuario
+  // Coloca o foco no campo nome do usuario
   @ViewChild('nomeUsuario') inputEl:ElementRef;
 
   ngAfterViewInit() {

@@ -1,17 +1,15 @@
-import { Http } from '@angular/http';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Injectable, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 import { Message} from 'primeng/api'
 import { UsuarioService } from './../../services/usuario.service';
-import { Observable } from '../../../../node_modules/rxjs';
-
 
 // video marcoratti
 //https://www.youtube.com/watch?v=SKY-26MMBak
 //https://www.youtube.com/watch?v=ube-_pZRlV4 - task
+
 
 @Component({
   selector: 'app-grid-personc',
@@ -20,14 +18,15 @@ import { Observable } from '../../../../node_modules/rxjs';
 })
 
 export class GridPersoncComponent<T> implements OnInit {
-      titulo : string;
-      cols: any[];
-      msgs: Message[] = [];
-      newRoute : string;
-      dadosAPI: T[] = []; 
-      url : string;
-      tableKey : string;
-      
+@Input() model: any;
+
+      titulo : string = "";
+      cols: any[] = null;
+      msgs: Message[] = null;
+      newRoute : string = "";
+      dadosAPI: T[] = null; 
+      url : string = "";
+      tableKey : string = "";
       
       constructor(public httpClient : HttpClient, public router: Router, public usuarioService : UsuarioService) {
       }
@@ -37,9 +36,15 @@ export class GridPersoncComponent<T> implements OnInit {
       }
 
       getData(){
-        this.httpClient.get<T[]>(this.url).subscribe(result => {
+          this.httpClient.get<T[]>(this.url).subscribe(result => {
           this.dadosAPI = result;
-        }, error => this.showError());
+          console.log(this.dadosAPI);
+
+        }, error => {
+           console.log(error);
+           this.showError();
+          }
+           );
       }
 
       newRegister(){
