@@ -1,13 +1,11 @@
-import { Http } from '@angular/http';
-import { Component, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Component, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 import { IPaciente } from './../../../Models/pacientes.interface';
 import { environment } from './../../../environments/environment';
 import { GridPersoncComponent } from './../../Common/grid-personc/grid-personc.component';
-import { UsuarioService } from './../../services/usuario.service';
 
 
 // video marcoratti
@@ -15,28 +13,30 @@ import { UsuarioService } from './../../services/usuario.service';
 
 @Component({
   selector: 'app-paciente-pesquisa',
-  templateUrl:  './../../Common/grid-personc/grid-personc.component.html', // './paciente-pesquisa.component.html',
+  templateUrl:  './paciente-pesquisa.component.html',
   styleUrls: ['./paciente-pesquisa.component.css']
 })
 
+export class PacientePesquisaComponent {
+  @ViewChild(GridPersoncComponent) grid: GridPersoncComponent<IPaciente>;
 
-export class PacientePesquisaComponent extends GridPersoncComponent  <IPaciente> {
-  url = environment.apiUrl+'/pacientes/grid';
-  titulo = "Pacientes";
-  newRoute = '/pacientes/cadastro';
-  tableKey =  'pacienteId';
 
-  cols = [
+  ngOnInit(): void {
+  this.grid.url = environment.apiUrl+'/pacientes/grid';
+  this.grid.titulo = "Pacientes";
+  this.grid.newRoute = '/pacientes/cadastro';
+  this.grid.tableKey =  'pacienteId';
+
+  this.grid.cols = [
     { field: 'pacienteId', header: 'Código', width: '15%' },
     { field: 'nomePaciente', header: 'Nome do Paciente', width : '60%' },
     { field: 'telefone', header: 'Telefone', width : '20' }
   ]; 
-
-  constructor(httpClient: HttpClient, public router: Router, public usuarioService : UsuarioService)  {
-       super(httpClient, router, usuarioService); 
-
+}
+  constructor(httpClient: HttpClient, public router: Router)  {
   }
 
+  /*
   newRegister( )
   {
     //this.router.navigate(['/paciente-cadastro'], pacienteId);
@@ -52,7 +52,7 @@ export class PacientePesquisaComponent extends GridPersoncComponent  <IPaciente>
   {
 
   }
-
+*/
  
 
 }

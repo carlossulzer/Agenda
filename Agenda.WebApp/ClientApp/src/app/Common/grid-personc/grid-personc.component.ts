@@ -18,17 +18,17 @@ import { UsuarioService } from './../../services/usuario.service';
 })
 
 export class GridPersoncComponent<T> implements OnInit {
-@Input() model: any;
-
-      titulo : string = "";
-      cols: any[] = null;
-      msgs: Message[] = null;
-      newRoute : string = "";
-      dadosAPI: T[] = null; 
-      url : string = "";
-      tableKey : string = "";
+      @Input() url : string;
+      @Input() titulo : string = "";
+      @Input() cols: any[] = null;
+      @Input() newRoute : string = "";
+      @Input() tableKey : string = "";
       
-      constructor(public httpClient : HttpClient, public router: Router, public usuarioService : UsuarioService) {
+
+      msgs: Message[] = null;
+      dadosAPI: T[] = null; 
+      
+      constructor(public httpClient : HttpClient, public router: Router){ //}, public usuarioService : UsuarioService) {
       }
 
       ngOnInit(){
@@ -49,7 +49,7 @@ export class GridPersoncComponent<T> implements OnInit {
 
       newRegister(){
         //this.router.navigate(['/paciente-cadastro'], pacienteId);
-        this.usuarioService.setItensVisiveis("New");
+        //this.usuarioService.setItensVisiveis("New");
 
         this.router.navigate([this.newRoute], { queryParams: { action : 'New', id: 0 } });
 
@@ -57,12 +57,12 @@ export class GridPersoncComponent<T> implements OnInit {
       }
 
       editRegister(dados : T[]){
-        this.usuarioService.setItensVisiveis("Edit");
+        //this.usuarioService.setItensVisiveis("Edit");
         this.router.navigate([this.newRoute], { queryParams: { action : 'Edit', id: dados[this.tableKey] } });
       } 
  
       deleteRegister(dados : T[]){
-        this.usuarioService.setItensVisiveis("Delete");
+        //this.usuarioService.setItensVisiveis("Delete");
         this.router.navigate([this.newRoute], { queryParams: { action : 'Delete', id: dados[this.tableKey] } });
       }
 
